@@ -1,0 +1,755 @@
+{
+ "geoms": {
+ "geom1_point_scatter": {
+ "geom": "point",
+"classed": "geom1_point_scatter",
+"aes": {
+ "x": "carat",
+"y": "price",
+"colour": "cut",
+"showSelected1": "cut" 
+},
+"params": {
+ "na.rm": false,
+"na.rm": false,
+"showSelected": "cut",
+"help_showSelected": "cut" 
+},
+"types": {
+ "colour": "rgb",
+"x": "numeric",
+"y": "numeric",
+"showSelected1": "factor",
+"PANEL": "integer",
+"fill": "rgb",
+"group": "character" 
+},
+"chunk_order": [],
+"nest_order": [
+ "showSelected1" 
+],
+"subset_order": [
+ "showSelected1" 
+],
+"chunks": 1,
+"total": 1 
+},
+"geom2_bar_histCarat": {
+ "geom": "rect",
+"classed": "geom2_bar_histCarat",
+"aes": {
+ "x": "carat",
+"fill": "cut",
+"showSelected1": "cut" 
+},
+"params": {
+ "na.rm": false,
+"bins":       30,
+"na.rm": false,
+"pad": false,
+"showSelected": "cut",
+"help_showSelected": "cut" 
+},
+"types": {
+ "fill": "rgb",
+"count": "numeric",
+"xmin": "numeric",
+"xmax": "numeric",
+"density": "numeric",
+"ncount": "numeric",
+"ndensity": "numeric",
+"showSelected1": "factor",
+"PANEL": "integer",
+"group": "character",
+"ymin": "numeric",
+"ymax": "numeric" 
+},
+"chunk_order": [],
+"nest_order": [
+ "showSelected1" 
+],
+"subset_order": [
+ "showSelected1" 
+],
+"chunks": 1,
+"total": 1 
+},
+"geom3_bar_histPrice": {
+ "geom": "rect",
+"classed": "geom3_bar_histPrice",
+"aes": {
+ "x": "price",
+"fill": "cut",
+"showSelected1": "cut" 
+},
+"params": {
+ "na.rm": false,
+"bins":       30,
+"na.rm": false,
+"pad": false,
+"showSelected": "cut",
+"help_showSelected": "cut" 
+},
+"types": {
+ "fill": "rgb",
+"count": "numeric",
+"xmin": "numeric",
+"xmax": "numeric",
+"density": "numeric",
+"ncount": "numeric",
+"ndensity": "numeric",
+"showSelected1": "factor",
+"PANEL": "integer",
+"group": "character",
+"ymin": "numeric",
+"ymax": "numeric" 
+},
+"chunk_order": [],
+"nest_order": [
+ "showSelected1" 
+],
+"subset_order": [
+ "showSelected1" 
+],
+"chunks": 1,
+"total": 1 
+} 
+},
+"selectors": {
+ "cut": {
+ "type": "multiple",
+"legend": true,
+"is.variable.value": false,
+"showSelected": true,
+"selected": [ "Ideal", "Premium", "Good", "Very Good", "Fair" ],
+"levels": [ "Ideal", "Premium", "Good", "Very Good", "Fair" ],
+"update": [
+ "geom1_point_scatter",
+"geom2_bar_histCarat",
+"geom3_bar_histPrice" 
+] 
+} 
+},
+"plots": {
+ "scatter": {
+ "panel_margin_lines":     0.25,
+"legend": {
+ "cut": {
+ "guide": "legend",
+"geoms": "point",
+"title": "cut",
+"class": "cut",
+"selector": "cut",
+"is_discrete": true,
+"legend_type": "colour",
+"text_size": "8.8pt",
+"title_size": "11pt",
+"entries": [
+ {
+ "pointcolour": "#E41A1C",
+"pointshape":       19,
+"pointsize":      1.5,
+"pointstroke":      0.5,
+"label": "Fair" 
+},
+{
+ "pointcolour": "#377EB8",
+"pointshape":       19,
+"pointsize":      1.5,
+"pointstroke":      0.5,
+"label": "Good" 
+},
+{
+ "pointcolour": "#4DAF4A",
+"pointshape":       19,
+"pointsize":      1.5,
+"pointstroke":      0.5,
+"label": "Very Good" 
+},
+{
+ "pointcolour": "#984EA3",
+"pointshape":       19,
+"pointsize":      1.5,
+"pointstroke":      0.5,
+"label": "Premium" 
+},
+{
+ "pointcolour": "#FF7F00",
+"pointshape":       19,
+"pointsize":      1.5,
+"pointstroke":      0.5,
+"label": "Ideal" 
+} 
+] 
+} 
+},
+"strips": {
+ "top": [
+ "" 
+],
+"right": [
+ "" 
+],
+"n": {
+ "top":        0,
+"right":        0 
+} 
+},
+"layout": {
+ "PANEL": [ 1 ],
+"ROW": [ 1 ],
+"COL": [ 1 ],
+"SCALE_X": [ 1 ],
+"SCALE_Y": [ 1 ],
+"AXIS_X": [ true ],
+"AXIS_Y": [ true ],
+"coord_fixed": [ false ],
+"width_proportion": [        1 ],
+"height_proportion": [        1 ] 
+},
+"panel_background": {
+ "fill": "#EBEBEB",
+"colour": "transparent",
+"size":      0.5,
+"linetype":        1 
+},
+"panel_border": [],
+"grid_major": {
+ "colour": "#FFFFFF",
+"size":      0.5,
+"linetype":        1,
+"lineend": "butt",
+"loc": {
+ "x": [
+ [
+        0,
+       1,
+       2,
+       3,
+       4,
+       5 
+] 
+],
+"y": [
+ [
+        0,
+    5000,
+   10000,
+   15000 
+] 
+] 
+} 
+},
+"grid_minor": {
+ "colour": "#FFFFFF",
+"size":     0.25,
+"linetype":        1,
+"lineend": "butt",
+"loc": {
+ "x": [
+ [
+        0,
+     0.5,
+       1,
+     1.5,
+       2,
+     2.5,
+       3,
+     3.5,
+       4,
+     4.5,
+       5 
+] 
+],
+"y": [
+ [
+        0,
+    2500,
+    5000,
+    7500,
+   10000,
+   12500,
+   15000,
+   17500 
+] 
+] 
+} 
+},
+"axis1": {
+ "x": [
+        0,
+       1,
+       2,
+       3,
+       4,
+       5 
+],
+"xlab": [
+ "0",
+"1",
+"2",
+"3",
+"4",
+"5" 
+],
+"xrange": [  -0.0405,   5.2505 ],
+"xline": true,
+"xticks": true,
+"y": [
+        0,
+    5000,
+   10000,
+   15000 
+],
+"ylab": [
+ "0",
+"5000",
+"10000",
+"15000" 
+],
+"yrange": [  -598.85, 19747.85 ],
+"yline": true,
+"yticks": true 
+},
+"xtitle": "Carat",
+"strip_text_xsize": "11pt",
+"xsize": "11pt",
+"xangle":        0,
+"xanchor": "middle",
+"ytitle": "Price",
+"strip_text_ysize": "11pt",
+"ysize": "11pt",
+"yangle":        0,
+"yanchor": "end",
+"xlabs": [
+ "0",
+"1",
+"2",
+"3",
+"4",
+"5" 
+],
+"ylabs": [
+ "0",
+"5000",
+"10000",
+"15000" 
+],
+"title": "Carat vs. Price of Diamonds",
+"title_size": "13.2pt",
+"options": {
+ "width":      400,
+"height":      400 
+},
+"geoms": [
+ "geom1_point_scatter" 
+] 
+},
+"histCarat": {
+ "panel_margin_lines":     0.25,
+"legend": {
+ "cut": {
+ "guide": "legend",
+"geoms": "polygon",
+"title": "cut",
+"class": "cut",
+"selector": "cut",
+"is_discrete": true,
+"legend_type": "fill",
+"text_size": "8.8pt",
+"title_size": "11pt",
+"entries": [
+ {
+ "polygonfill": "#440154",
+"polygonsize":      0.5,
+"polygonlinetype":        1,
+"label": "Fair" 
+},
+{
+ "polygonfill": "#3B528B",
+"polygonsize":      0.5,
+"polygonlinetype":        1,
+"label": "Good" 
+},
+{
+ "polygonfill": "#21908C",
+"polygonsize":      0.5,
+"polygonlinetype":        1,
+"label": "Very Good" 
+},
+{
+ "polygonfill": "#5DC863",
+"polygonsize":      0.5,
+"polygonlinetype":        1,
+"label": "Premium" 
+},
+{
+ "polygonfill": "#FDE725",
+"polygonsize":      0.5,
+"polygonlinetype":        1,
+"label": "Ideal" 
+} 
+] 
+} 
+},
+"strips": {
+ "top": [
+ "" 
+],
+"right": [
+ "" 
+],
+"n": {
+ "top":        0,
+"right":        0 
+} 
+},
+"layout": {
+ "PANEL": [ 1 ],
+"ROW": [ 1 ],
+"COL": [ 1 ],
+"SCALE_X": [ 1 ],
+"SCALE_Y": [ 1 ],
+"AXIS_X": [ true ],
+"AXIS_Y": [ true ],
+"coord_fixed": [ false ],
+"width_proportion": [        1 ],
+"height_proportion": [        1 ] 
+},
+"panel_background": {
+ "fill": "#EBEBEB",
+"colour": "transparent",
+"size":      0.5,
+"linetype":        1 
+},
+"panel_border": [],
+"grid_major": {
+ "colour": "#FFFFFF",
+"size":      0.5,
+"linetype":        1,
+"lineend": "butt",
+"loc": {
+ "x": [
+ [
+        0,
+       1,
+       2,
+       3,
+       4,
+       5 
+] 
+],
+"y": [
+ [
+        0,
+    5000,
+   10000,
+   15000 
+] 
+] 
+} 
+},
+"grid_minor": {
+ "colour": "#FFFFFF",
+"size":     0.25,
+"linetype":        1,
+"lineend": "butt",
+"loc": {
+ "x": [
+ [
+        0,
+     0.5,
+       1,
+     1.5,
+       2,
+     2.5,
+       3,
+     3.5,
+       4,
+     4.5,
+       5 
+] 
+],
+"y": [
+ [
+        0,
+    2500,
+    5000,
+    7500,
+   10000,
+   12500,
+   15000 
+] 
+] 
+} 
+},
+"axis1": {
+ "x": [
+        0,
+       1,
+       2,
+       3,
+       4,
+       5 
+],
+"xlab": [
+ "0",
+"1",
+"2",
+"3",
+"4",
+"5" 
+],
+"xrange": [ -0.1658621, 5.307586 ],
+"xline": true,
+"xticks": true,
+"y": [
+        0,
+    5000,
+   10000,
+   15000 
+],
+"ylab": [
+ "0",
+"5000",
+"10000",
+"15000" 
+],
+"yrange": [     -760,    15960 ],
+"yline": true,
+"yticks": true 
+},
+"xtitle": "Carat",
+"strip_text_xsize": "11pt",
+"xsize": "11pt",
+"xangle":        0,
+"xanchor": "middle",
+"ytitle": "Count",
+"strip_text_ysize": "11pt",
+"ysize": "11pt",
+"yangle":        0,
+"yanchor": "end",
+"xlabs": [
+ "0",
+"1",
+"2",
+"3",
+"4",
+"5" 
+],
+"ylabs": [
+ "0",
+"5000",
+"10000",
+"15000" 
+],
+"title": "Distribution of Carat",
+"title_size": "13.2pt",
+"options": {
+ "width":      400,
+"height":      400 
+},
+"geoms": [
+ "geom2_bar_histCarat" 
+] 
+},
+"histPrice": {
+ "panel_margin_lines":     0.25,
+"legend": {
+ "cut": {
+ "guide": "legend",
+"geoms": "polygon",
+"title": "cut",
+"class": "cut",
+"selector": "cut",
+"is_discrete": true,
+"legend_type": "fill",
+"text_size": "8.8pt",
+"title_size": "11pt",
+"entries": [
+ {
+ "polygonfill": "#440154",
+"polygonsize":      0.5,
+"polygonlinetype":        1,
+"label": "Fair" 
+},
+{
+ "polygonfill": "#3B528B",
+"polygonsize":      0.5,
+"polygonlinetype":        1,
+"label": "Good" 
+},
+{
+ "polygonfill": "#21908C",
+"polygonsize":      0.5,
+"polygonlinetype":        1,
+"label": "Very Good" 
+},
+{
+ "polygonfill": "#5DC863",
+"polygonsize":      0.5,
+"polygonlinetype":        1,
+"label": "Premium" 
+},
+{
+ "polygonfill": "#FDE725",
+"polygonsize":      0.5,
+"polygonlinetype":        1,
+"label": "Ideal" 
+} 
+] 
+} 
+},
+"strips": {
+ "top": [
+ "" 
+],
+"right": [
+ "" 
+],
+"n": {
+ "top":        0,
+"right":        0 
+} 
+},
+"layout": {
+ "PANEL": [ 1 ],
+"ROW": [ 1 ],
+"COL": [ 1 ],
+"SCALE_X": [ 1 ],
+"SCALE_Y": [ 1 ],
+"AXIS_X": [ true ],
+"AXIS_Y": [ true ],
+"coord_fixed": [ false ],
+"width_proportion": [        1 ],
+"height_proportion": [        1 ] 
+},
+"panel_background": {
+ "fill": "#EBEBEB",
+"colour": "transparent",
+"size":      0.5,
+"linetype":        1 
+},
+"panel_border": [],
+"grid_major": {
+ "colour": "#FFFFFF",
+"size":      0.5,
+"linetype":        1,
+"lineend": "butt",
+"loc": {
+ "x": [
+ [
+        0,
+    5000,
+   10000,
+   15000,
+   20000 
+] 
+],
+"y": [
+ [
+        0,
+    5000,
+   10000 
+] 
+] 
+} 
+},
+"grid_minor": {
+ "colour": "#FFFFFF",
+"size":     0.25,
+"linetype":        1,
+"lineend": "butt",
+"loc": {
+ "x": [
+ [
+        0,
+    2500,
+    5000,
+    7500,
+   10000,
+   12500,
+   15000,
+   17500,
+   20000 
+] 
+],
+"y": [
+ [
+        0,
+    2500,
+    5000,
+    7500,
+   10000,
+   12500 
+] 
+] 
+} 
+},
+"axis1": {
+ "x": [
+        0,
+    5000,
+   10000,
+   15000,
+   20000 
+],
+"xlab": [
+ "0",
+"5000",
+"10000",
+"15000",
+"20000" 
+],
+"xrange": [ -637.8276, 20410.48 ],
+"xline": true,
+"xticks": true,
+"y": [
+        0,
+    5000,
+   10000 
+],
+"ylab": [
+ "0",
+"5000",
+"10000" 
+],
+"yrange": [   -681.6,  14313.6 ],
+"yline": true,
+"yticks": true 
+},
+"xtitle": "Price",
+"strip_text_xsize": "11pt",
+"xsize": "11pt",
+"xangle":        0,
+"xanchor": "middle",
+"ytitle": "Count",
+"strip_text_ysize": "11pt",
+"ysize": "11pt",
+"yangle":        0,
+"yanchor": "end",
+"xlabs": [
+ "0",
+"5000",
+"10000",
+"15000",
+"20000" 
+],
+"ylabs": [
+ "0",
+"5000",
+"10000" 
+],
+"title": "Distribution of Price",
+"title_size": "13.2pt",
+"options": {
+ "width":      400,
+"height":      400 
+},
+"geoms": [
+ "geom3_bar_histPrice" 
+] 
+} 
+},
+"title": "Interactive Visualization of Diamonds Dataset" 
+}

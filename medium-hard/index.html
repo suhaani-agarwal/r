@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animint Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        .card-content h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #007BFF;
+        }
+        .card-content p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .card-content a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .card-content a:hover {
+            text-decoration: underline;
+        }
+        .filters {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .filters button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .filters button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Animint Gallery</h1>
+
+    <!-- Filters -->
+    <div class="filters">
+        <button onclick="filterGallery('all')">All</button>
+        <button onclick="filterGallery('statistics')">Statistics</button>
+        <button onclick="filterGallery('probability')">Probability</button>
+        <button onclick="filterGallery('simulation')">Simulation</button>
+    </div>
+
+    <!-- Gallery -->
+    <div class="gallery">
+        <!-- Galton Box -->
+        <div class="card" data-category="statistics">
+            <img src="Screenshot 2024-12-19 071328.png" alt="Galton Box">
+            <div class="card-content">
+                <h3>Galton Box</h3>
+                <p>Demonstration of the Galton Box, a statistical simulation.</p>
+                <a href="https://shubhammittal588.github.io/Shubham-Mittal-GSoC/Galton_box/index2.html" target="_blank">View Visualization</a>
+                <a href="https://github.com/shubhammittal588/Animated_interactive_ggplots_GSoC_Tasks/blob/main/galton_box_final.R" target="_blank">View Code</a>
+            </div>
+        </div>
+
+        <!-- Brownian Motion -->
+        <div class="card" data-category="simulation">
+            <img src="Screenshot 2024-12-19 140943.png" alt="Brownian Motion">
+            <div class="card-content">
+                <h3>Brownian Motion</h3>
+                <p>Simulation of Brownian Motion using Animint.</p>
+                <a href="https://vatsal-rajput.github.io/BrownianMotion/" target="_blank">View Visualization</a>
+                <a href="https://github.com/Vatsal-Rajput/Animint2Test/blob/main/BrownianMotion.R" target="_blank">View Code</a>
+            </div>
+        </div>
+
+        <!-- Monte Carlo Integration -->
+        <div class="card" data-category="statistics">
+            <img src="Screenshot 2024-12-19 141605.png" alt="Monte Carlo Integration">
+            <div class="card-content">
+                <h3>Monte Carlo Integration</h3>
+                <p>Sample Mean Monte Carlo integration using Animint.</p>
+                <a href="https://tushar98644.github.io/Animint2_Tests/monte-carlo-integration/index.html" target="_blank">View Visualization</a>
+                <a href="https://github.com/Tushar98644/Animint2_Tests/blob/main/scripts/monte_carlo_integration.R" target="_blank">View Code</a>
+            </div>
+        </div>
+
+        <!-- Coin Flip Probability -->
+        <div class="card" data-category="probability">
+            <img src="Screenshot 2024-12-19 142110.png" alt="Coin Flip Probability">
+            <div class="card-content">
+                <h3>Coin Flip Probability</h3>
+                <p>Probability simulation of flipping coins using Animint.</p>
+                <a href="https://busttech.github.io/deploy2/" target="_blank">View Visualization</a>
+                <a href="https://github.com/busttech/Test-solutions-of-animint/tree/main/Medium-test-solution" target="_blank">View Code</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Filtering -->
+    <script>
+        function filterGallery(category) {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
