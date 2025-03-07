@@ -1,3 +1,3 @@
 viz_owner_repo,title,source,commit.POSIXct,image_file,folder
-suhaani-agarwal/r,my animint 1,easy_test_solution/main.R,2024-03-07,gradient.png,easy_test_solution
-suhaani-agarwal/r,my animint 2,medium_test_solution/main.R,2024-03-07,diamonds.png,medium_test_solution
+suhaani-agarwal/r,gradient descent,easy_test_solution/main.R,2024-03-07,gradient.png,easy_test_solution
+suhaani-agarwal/r,diamonds dataset,medium_test_solution/main.R,2024-03-07,diamonds.png,medium_test_solution

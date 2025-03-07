@@ -49,7 +49,7 @@ for (i in 1:length(Creator)) {
 Visualization_Link <- sprintf("%s%s", viz.title, ".viz")
 
 # Generate source links
-Source <- paste0("<a href=", dt$source, ">", dt$title, "</a>")
+Source <- paste0("<a href='https://github.com/", dt$viz_owner_repo, "/tree/main/", dt$folder, "/", dt$source, "'>", dt$title, "</a>")
 
 # Generate GitHub Pages links
 viz.link <- sprintf("https://%s.github.io/%s/%s/index.html", CreatorName, "r", dt$folder)
