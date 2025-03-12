@@ -13,8 +13,8 @@ Each solution is implemented in R and includes an interactive visualization host
 - **Code Link**: [easy_test_solution/main.R](https://github.com/suhaani-agarwal/r/tree/main/easy_test_solution)
 
 ### 2. Medium Test Solution
-- **GitHub Pages Link**: [View Medium Test Solution](https://suhaani-agarwal.github.io/r/medium_test_solution/index.html)
-- **Code Link**: [medium_test_solution/main.R](https://github.com/suhaani-agarwal/r/tree/main/medium_test_solution)
+- **GitHub Pages Link**: [View Medium Test Solution](https://suhaani-agarwal.github.io/r/clt_animation/index.html)
+- **Code Link**: [medium_test_solution/main.R](https://github.com/suhaani-agarwal/r/tree/main/medium_test_sol)
 
 ### 3. Medium-Hard Test Solution
 - **GitHub Pages Link**: [View Medium-Hard Test Solution](https://suhaani-agarwal.github.io/r/medium-hard/index.html)
