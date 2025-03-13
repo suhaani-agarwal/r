@@ -29,6 +29,6 @@ Each solution is implemented in R and includes an interactive visualization host
 ---
 
 ### 3. Medium-Hard Test Solution
-- **Gallery Link**: [suhaani-animint-gallery](https://suhaani-agarwal.github.io/suhaani-animint-gallery/index.html)
+- **Gallery Link**: [suhaani-animint-gallery](https://suhaani-agarwal.github.io/suhaani-animint-gallery/)
 - **Code Link**: [suhaani-animint-gallery/index.Rmd](https://github.com/suhaani-agarwal/suhaani-animint-gallery/blob/main/index.Rmd)
 
