@@ -13,6 +13,12 @@ Each solution is implemented in R and includes an interactive visualization host
 - **Code Link**: [easy_test_solution/main.R](https://github.com/suhaani-agarwal/r/tree/main/easy_test_solution)
 
 ### 2. Medium Test Solution
+- **GitHub Pages Link**: [Newton-Raphson-Root-Demonstration](https://suhaani-agarwal.github.io/r/medium_test_newtons_method_code/index.html)
+- **Code Link**: [medium_test_solution/main.R](https://github.com/suhaani-agarwal/r/tree/main/medium_test_newtons_method_code/newtons_root.r)
+
+- **GitHub Pages Link**: [View Medium Test Solution](https://suhaani-agarwal.github.io/r/clt_animation/index.html)
+- **Code Link**: [medium_test_solution/main.R](https://github.com/suhaani-agarwal/r/tree/main/medium_test_sol)
+
 - **GitHub Pages Link**: [View Medium Test Solution](https://suhaani-agarwal.github.io/r/clt_animation/index.html)
 - **Code Link**: [medium_test_solution/main.R](https://github.com/suhaani-agarwal/r/tree/main/medium_test_sol)
 

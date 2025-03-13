@@ -193,7 +193,7 @@ for (n in sample_sizes) {
   normal_curve_df <- rbind(normal_curve_df, temp_df)
 }
 
-# Update the density plot to improve axis visibility
+# Update the density plot to include p-value annotation
 density_plot <- ggplot() +
   geom_density(
     data = density_df,
@@ -216,8 +216,7 @@ density_plot <- ggplot() +
     y = "Density"
   ) +
   scale_x_continuous(breaks = seq(-1, 3, by = 0.5)) +  # Set x-axis breaks
-  scale_y_continuous(breaks = seq(0, 2, by = 0.5)) +  # Set y-axis breaks
-  theme_minimal(base_size = 14) +  # Increase base font size
+  scale_y_continuous(breaks = seq(0, 2, by = 0.5)) +  # Set y-axis breaks  
   theme(
     legend.position = "bottom",
     axis.title.x = element_text(size = 16, face = "bold"),  # Bold x-axis title
@@ -225,7 +224,17 @@ density_plot <- ggplot() +
     axis.text.x = element_text(size = 14),  # Larger x-axis labels
     axis.text.y = element_text(size = 14)   # Larger y-axis labels
   ) +
-  coord_cartesian(xlim = c(-1, 3))  # Adjust x-axis range as needed
+  coord_cartesian(xlim = c(-1, 3)) +  # Adjust x-axis range as needed
+  # Add p-value text annotation
+  geom_text(
+    data = p_values_df,
+    aes(x = 3, y = 1.5, label = paste("p =", round(p_value, 4), "\nn =", n)),
+    inherit.aes = FALSE,
+    size = 6,  # Adjust the text size
+    color = "darkred",
+    hjust = 1
+  )
+
 
 # Update the p-value plot for better axis visibility
 p_value_plot <- ggplot(p_values_df, aes(x = n, y = p_value)) +
@@ -241,7 +250,6 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = p_value)) +
   ) +
   scale_x_continuous(breaks = seq(0, n_max, by = 25)) +  # Set x-axis breaks
   scale_y_continuous(breaks = seq(0, 1, by = 0.2)) +  # Set y-axis breaks
-  theme_minimal(base_size = 14) +  # Increase base font size
   theme(
     axis.title.x = element_text(size = 16, face = "bold"),  # Bold x-axis title
     axis.title.y = element_text(size = 16, face = "bold"),  # Bold y-axis title
