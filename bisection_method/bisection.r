@@ -6,7 +6,6 @@ library(ggplot2)
 library(animint2)
 library(dplyr)
 
-# Define a more complex test function
 f <- function(x) x^4 - 3 * x^3 + 2 * x^2 - 5 * x + 1
 
 # Initial interval [a, b]
