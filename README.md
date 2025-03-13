@@ -24,9 +24,10 @@ Each solution is implemented in R and includes an interactive visualization host
 ---
 
 - **Demonstration of Central Limit Theorem**: [Github Pages Link](https://suhaani-agarwal.github.io/r/clt_animation/index.html)
-- **Code Link**: [medium_test_solution/main.R](https://github.com/suhaani-agarwal/r/tree/main/medium_test_sol)
+- **Code Link**: [medium_test_solution/main.R](https://github.com/suhaani-agarwal/r/tree/main/r/medium_test_centrallimit_code)
 
 ---
+
 ### 3. Medium-Hard Test Solution
 - **GitHub Pages Link**: [Gallery Link](https://suhaani-agarwal.github.io/suhaani-animint-gallery/index.html)
 - **Code Link**: [suhaani-animint-gallery/index.Rmd](https://github.com/suhaani-agarwal/suhaani-animint-gallery/blob/main/index.Rmd)
