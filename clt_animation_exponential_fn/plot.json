@@ -276,9 +276,71 @@
  "geom": "text",
 "classed": "geom7_text_pvalues",
 "aes": {
+ "x": "max(n) + 20",
+"y": "log10(0.05) + 0.5",
+"label": "p > 0.05" 
+},
+"params": {
+ "parse": false,
+"check_overlap": false,
+"na.rm": false,
+"na.rm": false,
+"size":       10,
+"colour": "#000000",
+"fontface": "bold",
+"anchor": "end" 
+},
+"types": {
+ "x": "numeric",
+"y": "numeric",
+"label": "character",
+"PANEL": "integer",
+"group": "character" 
+},
+"chunk_order": [],
+"nest_order": [],
+"subset_order": [],
+"chunks": 1,
+"total": 1 
+},
+"geom8_text_pvalues": {
+ "geom": "text",
+"classed": "geom8_text_pvalues",
+"aes": {
+ "x": "max(n) + 20",
+"y": "log10(0.05) - 0.5",
+"label": "p < 0.05" 
+},
+"params": {
+ "parse": false,
+"check_overlap": false,
+"na.rm": false,
+"na.rm": false,
+"size":       10,
+"colour": "#000000",
+"fontface": "bold",
+"anchor": "end" 
+},
+"types": {
+ "x": "numeric",
+"y": "numeric",
+"label": "character",
+"PANEL": "integer",
+"group": "character" 
+},
+"chunk_order": [],
+"nest_order": [],
+"subset_order": [],
+"chunks": 1,
+"total": 1 
+},
+"geom9_text_pvalues": {
+ "geom": "text",
+"classed": "geom9_text_pvalues",
+"aes": {
  "x": "n",
 "y": "log10(p_value) + 0.2",
-"label": "paste(\"p-val=\", round(p_value, 4))",
+"label": "ifelse(p_value < 1e-04, \"p<0.0001\", paste0(\"p=\", round(p_value, 4)))",
 "showSelected1": "n" 
 },
 "params": {
@@ -353,7 +415,7 @@
 "geom2_line_density",
 "geom4_point_pvalues",
 "geom5_tallrect_pvalues",
-"geom7_text_pvalues" 
+"geom9_text_pvalues" 
 ] 
 } 
 },
@@ -855,7 +917,9 @@
 "geom4_point_pvalues",
 "geom5_tallrect_pvalues",
 "geom6_hline_pvalues",
-"geom7_text_pvalues" 
+"geom7_text_pvalues",
+"geom8_text_pvalues",
+"geom9_text_pvalues" 
 ] 
 } 
 } 

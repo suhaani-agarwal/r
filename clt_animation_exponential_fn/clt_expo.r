@@ -151,11 +151,28 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = log10(p_value))) +
   geom_tallrect(aes(xmin = n - interval_step/2, xmax = n + interval_step/2),
                 clickSelects = "n",
                 alpha = 0.2) +
-  geom_hline(yintercept = log10(0.05), linetype = "dashed", color = "black", size = 1) +  
+  geom_hline(yintercept = log10(0.05), linetype = "dashed", color = "black", size = 1) + 
+  geom_text(
+    aes(x = max(n) + 20, y = log10(0.05) + 0.5,  # Position above the line
+        label = "p > 0.05"),
+    size = 10, 
+    color = "black",
+    fontface = "bold",
+    hjust = 1  # Align text to the right
+  ) +
+  # Add text below the line (p < 0.05)
+  geom_text(
+    aes(x = max(n) + 20, y = log10(0.05) - 0.5,  # Position below the line
+        label = "p < 0.05"),
+    size = 10, 
+    color = "black",
+    fontface = "bold",
+    hjust = 1  # Align text to the right
+  ) + 
   geom_text(
     data = p_values_df,
     aes(x = n, y = log10(p_value) + 0.2,  
-        label = paste("p-val=", round(p_value, 4))),
+        label = ifelse(p_value < 0.0001, "p<0.0001", paste0("p=", round(p_value, 4)))),
     size = 17, 
     color = "darkblue",
     fontface = "bold",
@@ -174,9 +191,8 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = log10(p_value))) +
     axis.title.y = element_text(size = 16, face = "bold"),  
     axis.text.x = element_text(size = 14),  
     axis.text.y = element_text(size = 14)  
-  )+
+  ) +
   coord_cartesian(xlim = c(0, n_max + 20))
-
 
 # Create interactive animint visualization
 clt_viz <- list(
