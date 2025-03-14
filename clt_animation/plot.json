@@ -164,39 +164,9 @@
 },
 "total": 30 
 },
-"geom3_text_density": {
- "geom": "text",
-"classed": "geom3_text_density",
-"aes": {
- "x": "3",
-"y": "1.5",
-"label": "paste(\"p =\", round(p_value, 4), \"\\nn =\", n)" 
-},
-"params": {
- "parse": false,
-"check_overlap": false,
-"na.rm": false,
-"na.rm": false,
-"size":        6,
-"colour": "#8B0000",
-"anchor": "end" 
-},
-"types": {
- "x": "numeric",
-"y": "numeric",
-"label": "character",
-"PANEL": "integer",
-"group": "character" 
-},
-"chunk_order": [],
-"nest_order": [],
-"subset_order": [],
-"chunks": 1,
-"total": 1 
-},
-"geom4_line_pvalues": {
+"geom3_line_pvalues": {
  "geom": "line",
-"classed": "geom4_line_pvalues",
+"classed": "geom3_line_pvalues",
 "aes": {
  "x": "n",
 "y": "p_value" 
@@ -204,7 +174,7 @@
 "params": {
  "na.rm": false,
 "na.rm": false,
-"colour": "#00FF00",
+"colour": "#FF0000",
 "size":        1 
 },
 "types": {
@@ -219,9 +189,9 @@
 "chunks": 1,
 "total": 1 
 },
-"geom5_point_pvalues": {
+"geom4_point_pvalues": {
  "geom": "point",
-"classed": "geom5_point_pvalues",
+"classed": "geom4_point_pvalues",
 "aes": {
  "x": "n",
 "y": "p_value",
@@ -239,6 +209,30 @@
  "x": "numeric",
 "y": "numeric",
 "clickSelects": "numeric",
+"PANEL": "integer",
+"group": "character" 
+},
+"chunk_order": [],
+"nest_order": [],
+"subset_order": [],
+"chunks": 1,
+"total": 1 
+},
+"geom5_hline_pvalues": {
+ "geom": "hline",
+"classed": "geom5_hline_pvalues",
+"aes": {
+ "yintercept": "yintercept" 
+},
+"params": {
+ "na.rm": false,
+"na.rm": false,
+"linetype": "dashed",
+"colour": "#000000",
+"size":        1 
+},
+"types": {
+ "yintercept": "numeric",
 "PANEL": "integer",
 "group": "character" 
 },
@@ -275,6 +269,45 @@
 "chunk_order": [],
 "nest_order": [],
 "subset_order": [],
+"chunks": 1,
+"total": 1 
+},
+"geom7_text_pvalues": {
+ "geom": "text",
+"classed": "geom7_text_pvalues",
+"aes": {
+ "x": "n",
+"y": "p_value + 0.02",
+"label": "paste(\"p-val=\", round(p_value, 4))",
+"showSelected1": "n" 
+},
+"params": {
+ "parse": false,
+"check_overlap": false,
+"na.rm": false,
+"na.rm": false,
+"size":       15,
+"colour": "#00008B",
+"fontface": "bold",
+"showSelected": "n",
+"help_showSelected": "n",
+"anchor": "start" 
+},
+"types": {
+ "x": "numeric",
+"y": "numeric",
+"label": "character",
+"showSelected1": "numeric",
+"PANEL": "integer",
+"group": "character" 
+},
+"chunk_order": [],
+"nest_order": [
+ "showSelected1" 
+],
+"subset_order": [
+ "showSelected1" 
+],
 "chunks": 1,
 "total": 1 
 } 
@@ -318,8 +351,9 @@
 "update": [
  "geom1_density_density",
 "geom2_line_density",
-"geom5_point_pvalues",
-"geom6_tallrect_pvalues" 
+"geom4_point_pvalues",
+"geom6_tallrect_pvalues",
+"geom7_text_pvalues" 
 ] 
 } 
 },
@@ -327,10 +361,29 @@
  "density": {
  "panel_margin_lines":     0.25,
 "legend": {
- "": {
+ "color_var": {
+ "guide": "legend",
+"geoms": "path",
+"title": "color_var",
+"class": "color_var",
+"selector": "color_var",
+"is_discrete": true,
+"legend_type": "colour",
+"text_size": "8.8pt",
+"title_size": "11pt",
+"entries": [
+ {
+ "pathcolour": "#FF0000",
+"pathsize":        1,
+"pathlinetype": "dashed",
+"label": "Normal Approx." 
+} 
+] 
+},
+"fill_var": {
  "guide": "legend",
 "geoms": "polygon",
-"title": "",
+"title": "fill_var",
 "class": "fill_var",
 "selector": "fill_var",
 "is_discrete": true,
@@ -346,25 +399,6 @@
 "polygonsize":      0.5,
 "polygonlinetype":        1,
 "label": "Sample Means" 
-} 
-] 
-},
-"": {
- "guide": "legend",
-"geoms": "path",
-"title": "",
-"class": "color_var",
-"selector": "color_var",
-"is_discrete": true,
-"legend_type": "colour",
-"text_size": "8.8pt",
-"title_size": "11pt",
-"entries": [
- {
- "pathcolour": "#FF0000",
-"pathsize":        1,
-"pathlinetype": "dashed",
-"label": "Normal Approx." 
 } 
 ] 
 } 
@@ -413,19 +447,17 @@
        0,
      0.5,
        1,
-     1.5,
-       2,
-     2.5,
-       3 
+     1.5 
 ] 
 ],
 "y": [
  [
         0,
-     0.5,
        1,
-     1.5,
-       2 
+       2,
+       3,
+       4,
+       5 
 ] 
 ] 
 } 
@@ -438,7 +470,8 @@
 "loc": {
  "x": [
  [
-       -1,
+    -1.25,
+      -1,
    -0.75,
     -0.5,
    -0.25,
@@ -448,28 +481,22 @@
     0.75,
        1,
     1.25,
-     1.5,
-    1.75,
-       2,
-    2.25,
-     2.5,
-    2.75,
-       3 
+     1.5 
 ] 
 ],
 "y": [
  [
         0,
-    0.25,
      0.5,
-    0.75,
        1,
-    1.25,
      1.5,
-    1.75,
        2,
-    2.25,
-     2.5 
+     2.5,
+       3,
+     3.5,
+       4,
+     4.5,
+       5 
 ] 
 ] 
 } 
@@ -481,10 +508,7 @@
        0,
      0.5,
        1,
-     1.5,
-       2,
-     2.5,
-       3 
+     1.5 
 ],
 "xlab": [
  "-1.0",
@@ -492,40 +516,39 @@
 "0.0",
 "0.5",
 "1.0",
-"1.5",
-"2.0",
-"2.5",
-"3.0" 
+"1.5" 
 ],
-"xrange": [     -1.2,      3.2 ],
+"xrange": [ -1.452623, 1.519084 ],
 "xline": true,
 "xticks": true,
 "y": [
         0,
-     0.5,
        1,
-     1.5,
-       2 
+       2,
+       3,
+       4,
+       5 
 ],
 "ylab": [
- "0.0",
-"0.5",
-"1.0",
-"1.5",
-"2.0" 
+ "0",
+"1",
+"2",
+"3",
+"4",
+"5" 
 ],
-"yrange": [ -0.244294, 5.130174 ],
+"yrange": [ -0.2482179, 5.212576 ],
 "yline": true,
 "yticks": true 
 },
 "xtitle": "Sample Mean",
 "strip_text_xsize": "11pt",
-"xsize": "14pt",
+"xsize": "11pt",
 "xangle":        0,
 "xanchor": "middle",
 "ytitle": "Density",
 "strip_text_ysize": "11pt",
-"ysize": "14pt",
+"ysize": "11pt",
 "yangle":        0,
 "yanchor": "end",
 "xlabs": [
@@ -534,19 +557,17 @@
 "0.0",
 "0.5",
 "1.0",
-"1.5",
-"2.0",
-"2.5",
-"3.0" 
+"1.5" 
 ],
 "ylabs": [
- "0.0",
-"0.5",
-"1.0",
-"1.5",
-"2.0" 
+ "0",
+"1",
+"2",
+"3",
+"4",
+"5" 
 ],
-"title": "Central Limit Theorem Animation",
+"title": "Central Limit Theorem - Normal Distribution",
 "title_size": "13.2pt",
 "options": {
  "width":      400,
@@ -554,8 +575,7 @@
 },
 "geoms": [
  "geom1_density_density",
-"geom2_line_density",
-"geom3_text_density" 
+"geom2_line_density" 
 ] 
 },
 "pvalues": {
@@ -601,21 +621,17 @@
  "x": [
  [
         0,
-      25,
       50,
-      75,
      100,
-     125,
      150 
 ] 
 ],
 "y": [
  [
         0,
-     0.2,
-     0.4,
-     0.6,
-     0.8 
+    0.25,
+     0.5,
+    0.75 
 ] 
 ] 
 } 
@@ -629,31 +645,25 @@
  "x": [
  [
         0,
-    12.5,
       25,
-    37.5,
       50,
-    62.5,
       75,
-    87.5,
      100,
-   112.5,
      125,
-   137.5,
-     150 
+     150,
+     175 
 ] 
 ],
 "y": [
  [
         0,
-     0.1,
-     0.2,
-     0.3,
-     0.4,
+   0.125,
+    0.25,
+   0.375,
      0.5,
-     0.6,
-     0.7,
-     0.8 
+   0.625,
+    0.75,
+   0.875 
 ] 
 ] 
 } 
@@ -661,68 +671,56 @@
 "axis1": {
  "x": [
         0,
-      25,
       50,
-      75,
      100,
-     125,
      150 
 ],
 "xlab": [
  "0",
-"25",
 "50",
-"75",
 "100",
-"125",
 "150" 
 ],
-"xrange": [       -5,      160 ],
+"xrange": [     -8.5,    178.5 ],
 "xline": true,
 "xticks": true,
 "y": [
         0,
-     0.2,
-     0.4,
-     0.6,
-     0.8 
+    0.25,
+     0.5,
+    0.75 
 ],
 "ylab": [
- "0.0",
-"0.2",
-"0.4",
-"0.6",
-"0.8" 
+ "0.00",
+"0.25",
+"0.50",
+"0.75" 
 ],
-"yrange": [ -0.0402806, 0.8458925 ],
+"yrange": [ -0.02706661, 0.9922733 ],
 "yline": true,
 "yticks": true 
 },
 "xtitle": "Sample Size (n)",
 "strip_text_xsize": "11pt",
-"xsize": "14pt",
+"xsize": "11pt",
 "xangle":        0,
 "xanchor": "middle",
 "ytitle": "P-Value",
 "strip_text_ysize": "11pt",
-"ysize": "14pt",
+"ysize": "11pt",
 "yangle":        0,
 "yanchor": "end",
 "xlabs": [
  "0",
-"25",
 "50",
-"75",
 "100",
-"125",
 "150" 
 ],
 "ylabs": [
- "0.0",
-"0.2",
-"0.4",
-"0.6",
-"0.8" 
+ "0.00",
+"0.25",
+"0.50",
+"0.75" 
 ],
 "title": "Shapiro-Wilk Test P-values",
 "title_size": "13.2pt",
@@ -731,9 +729,11 @@
 "height":      400 
 },
 "geoms": [
- "geom4_line_pvalues",
-"geom5_point_pvalues",
-"geom6_tallrect_pvalues" 
+ "geom3_line_pvalues",
+"geom4_point_pvalues",
+"geom5_hline_pvalues",
+"geom6_tallrect_pvalues",
+"geom7_text_pvalues" 
 ] 
 } 
 } 
