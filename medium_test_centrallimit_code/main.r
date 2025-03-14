@@ -94,7 +94,8 @@ density_plot <- ggplot() +
   scale_fill_manual(values = c("Sample Means" = "steelblue")) +
   scale_color_manual(values = c("Normal Approx." = "red")) +
   labs(title = "Central Limit Theorem - Normal Distribution", x = "Sample Mean", y = "Density") +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom")+
+  coord_cartesian(xlim = c(-1, x_range + 0.5))
 
 p_value_plot <- ggplot(p_values_df, aes(x = n, y = p_value)) +  
   geom_line(color = "red", size = 1) +
@@ -114,7 +115,7 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = p_value)) +
     hjust = 0,  # Slightly shift text to the right for visibility
     showSelected = "n"
   ) +
-  coord_cartesian(xlim = c(0, n_max + 20))
+  coord_cartesian(xlim = c(0, n_max + 40))
 
 
 clt_viz <- list(density = density_plot, pvalues = p_value_plot, time = list(variable = "n", ms = 1000))
