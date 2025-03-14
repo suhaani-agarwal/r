@@ -101,6 +101,23 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = p_value)) +
   geom_line(color = "red", size = 1) +
   geom_point(size = 2, color = "blue", clickSelects = "n") +
   geom_hline(yintercept = 0.05, linetype = "dashed", color = "black", size = 1) +  
+  geom_text(
+    aes(x = max(n) + 30, y = 0.05 + 0.02,  # Position above the line
+        label = "p > 0.05"),
+    size = 10, 
+    color = "black",
+    fontface = "bold",
+    hjust = 1  # Align text to the right
+  ) +
+  # Add text below the line (p < 0.05)
+  geom_text(
+    aes(x = max(n) + 30, y = 0.05 - 0.03,  # Position below the line
+        label = "p < 0.05"),
+    size = 10, 
+    color = "black",
+    fontface = "bold",
+    hjust = 1  # Align text to the right
+  ) +
   geom_tallrect(aes(xmin = n - interval_step/2, xmax = n + interval_step/2),
                 clickSelects = "n",
                 alpha = 0.2) +

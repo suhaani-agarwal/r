@@ -158,7 +158,7 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = log10(p_value))) +
     size = 10, 
     color = "black",
     fontface = "bold",
-    hjust = 1  # Align text to the right
+    hjust = 1  
   ) +
   # Add text below the line (p < 0.05)
   geom_text(
@@ -167,7 +167,7 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = log10(p_value))) +
     size = 10, 
     color = "black",
     fontface = "bold",
-    hjust = 1  # Align text to the right
+    hjust = 1  
   ) + 
   geom_text(
     data = p_values_df,
