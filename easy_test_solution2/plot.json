@@ -360,31 +360,31 @@
 "title_size": "11pt",
 "entries": [
  {
- "polygonfill": "#440154",
+ "polygonfill": "#E41A1C",
 "polygonsize":      0.5,
 "polygonlinetype":        1,
 "label": "Fair" 
 },
 {
- "polygonfill": "#3B528B",
+ "polygonfill": "#377EB8",
 "polygonsize":      0.5,
 "polygonlinetype":        1,
 "label": "Good" 
 },
 {
- "polygonfill": "#21908C",
+ "polygonfill": "#4DAF4A",
 "polygonsize":      0.5,
 "polygonlinetype":        1,
 "label": "Very Good" 
 },
 {
- "polygonfill": "#5DC863",
+ "polygonfill": "#984EA3",
 "polygonsize":      0.5,
 "polygonlinetype":        1,
 "label": "Premium" 
 },
 {
- "polygonfill": "#FDE725",
+ "polygonfill": "#FF7F00",
 "polygonsize":      0.5,
 "polygonlinetype":        1,
 "label": "Ideal" 
@@ -568,31 +568,31 @@
 "title_size": "11pt",
 "entries": [
  {
- "polygonfill": "#440154",
+ "polygonfill": "#E41A1C",
 "polygonsize":      0.5,
 "polygonlinetype":        1,
 "label": "Fair" 
 },
 {
- "polygonfill": "#3B528B",
+ "polygonfill": "#377EB8",
 "polygonsize":      0.5,
 "polygonlinetype":        1,
 "label": "Good" 
 },
 {
- "polygonfill": "#21908C",
+ "polygonfill": "#4DAF4A",
 "polygonsize":      0.5,
 "polygonlinetype":        1,
 "label": "Very Good" 
 },
 {
- "polygonfill": "#5DC863",
+ "polygonfill": "#984EA3",
 "polygonsize":      0.5,
 "polygonlinetype":        1,
 "label": "Premium" 
 },
 {
- "polygonfill": "#FDE725",
+ "polygonfill": "#FF7F00",
 "polygonsize":      0.5,
 "polygonlinetype":        1,
 "label": "Ideal" 

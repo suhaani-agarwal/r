@@ -1,8 +1,6 @@
 # Set CRAN mirror
 options(repos = c(CRAN = "https://cran.rstudio.com/"))
-# Install required packages
-install.packages("ggplot2")
-install.packages("animint2")
+
 # Load required libraries
 library(ggplot2)
 library(animint2)
@@ -10,7 +8,7 @@ library(animint2)
 # Load the diamonds dataset
 data("diamonds")
 
-# Define colors for diamond cuts
+# Define consistent colors for diamond cuts
 cut.colors <- c(
   Fair = "#E41A1C", 
   Good = "#377EB8", 
@@ -36,8 +34,9 @@ scatter <- ggplot() +
     title = "Carat vs. Price of Diamonds"
   )
 
-# Create the histogram for carat
+# Create the histogram for carat with consistent colors
 histCarat <- ggplot() +
+  scale_fill_manual(values = cut.colors) +  # Ensure matching colors
   geom_histogram(
     mapping = aes(
       x = carat,
@@ -52,8 +51,9 @@ histCarat <- ggplot() +
     title = "Distribution of Carat"
   )
 
-# Create the histogram for price
+# Create the histogram for price with consistent colors
 histPrice <- ggplot() +
+  scale_fill_manual(values = cut.colors) +  # Ensure matching colors
   geom_histogram(
     mapping = aes(
       x = price,
