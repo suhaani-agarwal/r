@@ -119,6 +119,16 @@ density_plot <- ggplot() +
     alpha = 0.5,
     showSelected = "n"
   ) +
+  geom_text(
+  data = p_values_df,
+  aes(x = 1.7 , y = 4,  
+      label = ifelse(p_value < 0.0001, "p_val<0.0001", sprintf("p_val=%.4f", p_value))),
+  size = 17, 
+  color = "darkblue",
+  fontface = "bold",
+  hjust = 0,  # Slightly shift text to the right for visibility
+  showSelected = "n"
+)+
   geom_line(
     data = normal_curve_df,
     aes(x = x, y = y, group = n, color = color_var),
@@ -153,32 +163,32 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = log10(p_value))) +
                 alpha = 0.2) +
   geom_hline(yintercept = log10(0.05), linetype = "dashed", color = "black", size = 1) + 
   geom_text(
-    aes(x = max(n) + 20, y = log10(0.05) + 0.5,  # Position above the line
+    aes(x = max(n) + 35, y = log10(0.05) + 1,
         label = "p > 0.05"),
-    size = 10, 
+    size = 17, 
     color = "black",
     fontface = "bold",
     hjust = 1  
   ) +
   # Add text below the line (p < 0.05)
   geom_text(
-    aes(x = max(n) + 20, y = log10(0.05) - 0.5,  # Position below the line
+    aes(x = max(n) + 35, y = log10(0.05) - 1.3,  # Position below the line
         label = "p < 0.05"),
-    size = 10, 
+    size = 17, 
     color = "black",
     fontface = "bold",
     hjust = 1  
   ) + 
   geom_text(
-    data = p_values_df,
-    aes(x = n, y = log10(p_value) + 0.2,  
-        label = ifelse(p_value < 0.0001, "p<0.0001", paste0("p=", round(p_value, 4)))),
-    size = 17, 
-    color = "darkblue",
-    fontface = "bold",
-    hjust = 0,  # Slightly shift text to the right for visibility
-    showSelected = "n"
-  ) +
+  data = p_values_df,
+  aes(x = n, y = log10(p_value) + 0.2,  
+      label = ifelse(p_value < 0.0001, "p<0.0001", sprintf("p=%.4f", p_value))),
+  size = 17, 
+  color = "darkblue",
+  fontface = "bold",
+  hjust = 0,  # Slightly shift text to the right for visibility
+  showSelected = "n"
+)+
   labs(
     title = "Shapiro-Wilk Test P-values",
     x = "Sample Size (n)",
@@ -192,7 +202,7 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = log10(p_value))) +
     axis.text.x = element_text(size = 14),  
     axis.text.y = element_text(size = 14)  
   ) +
-  coord_cartesian(xlim = c(0, n_max + 20))
+  coord_cartesian(xlim = c(0, n_max + 30))
 
 # Create interactive animint visualization
 clt_viz <- list(

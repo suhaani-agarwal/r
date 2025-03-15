@@ -5,7 +5,7 @@
 // </script>
 // Constructor for animint Object.
 var animint = function (to_select, json_file) {
-  var steps = [];
+
   var default_axis_px = 16;
 
    function wait_until_then(timeout, condFun, readyFun) {
@@ -148,10 +148,6 @@ var animint = function (to_select, json_file) {
   var element = d3.select(to_select);
   this.element = element;
   var viz_id = element.attr("id");
-  var plot_widget_table = element.append("table");
-  var plot_td = plot_widget_table.append("tr").append("td");
-  plot_td.attr("class","plot_content");
-  var widget_td = plot_widget_table.append("tr").append("td");
   var Widgets = {};
   this.Widgets = Widgets;
   var Selectors = {};
@@ -185,31 +181,6 @@ var animint = function (to_select, json_file) {
 
   var add_geom = function (g_name, g_info) {
     // Determine if data will be an object or an array.
-    // added geom properties in steps array
-    var geom = g_info.classed;
-    var title = g_info.params.title || g_info.classed;
-    var helpText = g_info.params.help || '';
-    var help_showSelected = g_info.params.help_showSelected || '';
-    var help_clickSelects = g_info.params.help_clickSelects || '';
-    var description = helpText;
-    if(g_info.params.hasOwnProperty("showSelected")){
-      if(description != "")description += '<br>';
-      description += 'Data are shown for the current selection of: ' + help_showSelected;
-    }
-    if(g_info.params.hasOwnProperty("clickSelects")){
-      if(description != "")description += '<br>';
-      description += 'Click to select: ' + help_clickSelects;
-    }
-    if(description == ""){
-      description = "No interactions available";
-    }
-    steps.push({  // this add the geom to the steps array for guided tour
-      element: '#' + viz_id + ' .' + geom,
-      popover: {
-        title: title,
-        description: description
-      }
-    });
     if(g_info.geom in data_object_geoms){
       g_info.data_is_object = true;
     }else{
@@ -247,7 +218,7 @@ var animint = function (to_select, json_file) {
     // Each plot may have one or more legends. To make space for the
     // legends, we put each plot in a table with one row and two
     // columns: tdLeft and tdRight.
-    var plot_table = plot_td.append("table").style("display", "inline-block");
+    var plot_table = element.append("table").style("display", "inline-block");
     var plot_tr = plot_table.append("tr");
     var tdLeft = plot_tr.append("td");
     var tdRight = plot_tr.append("td").attr("class", p_name+"_legend");
@@ -332,7 +303,7 @@ var animint = function (to_select, json_file) {
 	return measureText(entry, p_info.ysize).width + 5;
       }));
     }
-    var axispaddingx = 30; // distance between tick marks and x axis name.
+    var axispaddingx = 10 + 20;
     if(p_info.hasOwnProperty("xlabs") && p_info.xlabs.length){
       // TODO: throw warning if text height is large portion of plot height?
       axispaddingx += Math.max.apply(null, p_info.xlabs.map(function(entry){
@@ -2078,28 +2049,15 @@ var animint = function (to_select, json_file) {
     ////////////////////////////////////////////
     // Widgets at bottom of page
     ////////////////////////////////////////////
-     // Function to start the tour
-     var element = d3.select('body');
+    element.append("br");
     if(response.hasOwnProperty("source")){
-      widget_td.append("a")
-	.attr("class","a_source_href")
+      element.append("a")
+	.attr("id","a_source_href")
 	.attr("href", response.source)
 	.text("source");
     }
-    widget_td
-      .append('button')
-      .attr('class', 'animint_start_tour')
-      .text('Start Tour')
-      .on('click', function () {
-        const driver = window.driver.js.driver;
-        const driverObj = driver({
-          showProgress: true,
-          steps: steps,
-        });
-        driverObj.drive();
-      });
     // loading table.
-    var show_hide_table = widget_td.append("button")
+    var show_hide_table = element.append("button")
       .text("Show download status table");
     show_hide_table
       .on("click", function(){
@@ -2111,7 +2069,7 @@ var animint = function (to_select, json_file) {
           show_hide_table.text("Show download status table");
         }
       });
-    var loading = widget_td.append("table")
+    var loading = element.append("table")
       .style("display", "none");
     Widgets["loading"] = loading;
     var tr = loading.append("tr");
@@ -2129,7 +2087,7 @@ var animint = function (to_select, json_file) {
     // Animation control widgets.
     var show_message = "Show animation controls";
     // add a button to view the animation widgets
-    var show_hide_animation_controls = widget_td.append("button")
+    var show_hide_animation_controls = element.append("button")
       .text(show_message)
       .attr("id", viz_id + "_show_hide_animation_controls")
       .on("click", function(){
@@ -2143,7 +2101,7 @@ var animint = function (to_select, json_file) {
       })
     ;
     // table of the animint widgets
-    var time_table = widget_td.append("table")
+    var time_table = element.append("table")
       .style("display", "none");
     var first_tr = time_table.append("tr");
     var first_th = first_tr.append("th");
@@ -2220,13 +2178,13 @@ var animint = function (to_select, json_file) {
         d3.select(".urltable").style("display","none")
       }
     }
-    var show_hide_selector_widgets = widget_td.append("button")
+    var show_hide_selector_widgets = element.append("button")
       .text(toggle_message)
       .attr("class", "show_hide_selector_widgets")
       .on("click", show_or_hide_fun)
     ;
     // adding a table for selector widgets
-    var selector_table = widget_td.append("table")
+    var selector_table = element.append("table")
       .style("display", "none")
       .attr("class", "table_selector_widgets")
     ;
@@ -2239,14 +2197,8 @@ var animint = function (to_select, json_file) {
       .append("th")
       .text("Selected value(s)")
     ;
-    // video link
-    if(response.hasOwnProperty("video")){
-      widget_td.append("a")
-	.attr("class","a_video_href")
-	.attr("href", response.video)
-	.text("video");
-    }
-    // looping through and adding a row for each selector
+      
+     // looping through and adding a row for each selector
     for(s_name in Selectors) {
       var s_info = Selectors[s_name];
       // for .variable .value selectors, levels is undefined and we do
@@ -2531,4 +2483,5 @@ var animint = function (to_select, json_file) {
     }//if(window.location.hash)
   });
 };
+
 
