@@ -162,23 +162,10 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = log10(p_value))) +
                 clickSelects = "n",
                 alpha = 0.2) +
   geom_hline(yintercept = log10(0.05), linetype = "dashed", color = "black", size = 1) + 
-  geom_text(
-    aes(x = max(n) + 35, y = log10(0.05) + 1,
-        label = "p > 0.05"),
-    size = 17, 
-    color = "black",
-    fontface = "bold",
-    hjust = 1  
-  ) +
-  # Add text below the line (p < 0.05)
-  geom_text(
-    aes(x = max(n) + 35, y = log10(0.05) - 1.3,  # Position below the line
-        label = "p < 0.05"),
-    size = 17, 
-    color = "black",
-    fontface = "bold",
-    hjust = 1  
-  ) + 
+  annotate("text", x = max(p_values_df$n) + 35, y = log10(0.05) + 1,
+           label = "p > 0.05", size = 17, color = "black", fontface = "bold", hjust = 1) +
+  annotate("text", x = max(p_values_df$n) + 35, y = log10(0.05) - 1.3,
+           label = "p < 0.05", size = 17, color = "black", fontface = "bold", hjust = 1) +
   geom_text(
   data = p_values_df,
   aes(x = n, y = log10(p_value) + 0.2,  
