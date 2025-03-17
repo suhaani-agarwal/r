@@ -218,7 +218,7 @@
 "na.rm": false,
 "colour": "#FF0000",
 "size":        1,
-"help": "This plot shows the p-values from the Shapiro-Wilk test. A low p-value indicates that the sample means are not normally distributed." 
+"help": "This plot shows the p-values from the Shapiro-Wilk test." 
 },
 "types": {
  "x": "numeric",
@@ -316,9 +316,39 @@
 "chunks": 1,
 "total": 1 
 },
-"geom8_text_pvalues": {
+"geom8_tallrect_pvalues": {
+ "geom": "tallrect",
+"classed": "geom8_tallrect_pvalues",
+"aes": {
+ "xmin": "n - interval_step/2",
+"xmax": "n + interval_step/2",
+"clickSelects": "n" 
+},
+"params": {
+ "na.rm": false,
+"na.rm": false,
+"alpha":      0.2,
+"clickSelects": "n",
+"help_clickSelects": "n" 
+},
+"types": {
+ "x": "numeric",
+"xmin": "numeric",
+"xmax": "numeric",
+"y": "numeric",
+"clickSelects": "numeric",
+"PANEL": "integer",
+"group": "character" 
+},
+"chunk_order": [],
+"nest_order": [],
+"subset_order": [],
+"chunks": 1,
+"total": 1 
+},
+"geom9_text_pvalues": {
  "geom": "text",
-"classed": "geom8_text_pvalues",
+"classed": "geom9_text_pvalues",
 "aes": {
  "x": "x",
 "y": "y" 
@@ -346,9 +376,9 @@
 "chunks": 1,
 "total": 1 
 },
-"geom9_text_pvalues": {
+"geom10_text_pvalues": {
  "geom": "text",
-"classed": "geom9_text_pvalues",
+"classed": "geom10_text_pvalues",
 "aes": {
  "x": "n",
 "y": "p_value + 0.02",
@@ -427,7 +457,8 @@
 "geom2_text_density",
 "geom3_line_density",
 "geom5_point_pvalues",
-"geom9_text_pvalues" 
+"geom8_tallrect_pvalues",
+"geom10_text_pvalues" 
 ] 
 } 
 },
@@ -796,8 +827,9 @@
 "geom5_point_pvalues",
 "geom6_hline_pvalues",
 "geom7_text_pvalues",
-"geom8_text_pvalues",
-"geom9_text_pvalues" 
+"geom8_tallrect_pvalues",
+"geom9_text_pvalues",
+"geom10_text_pvalues" 
 ] 
 } 
 } 

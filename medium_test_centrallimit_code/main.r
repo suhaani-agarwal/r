@@ -125,6 +125,10 @@ p_value_plot <- ggplot(p_values_df,
     label = "p > 0.05", size = 15, color = "black", fontface = "bold", hjust = 1,
     help="p_values > 0.05"
   ) +
+  geom_tallrect(aes(xmin = n - interval_step / 2, xmax = n + interval_step / 2),
+        clickSelects = "n",
+        alpha = 0.2
+    ) +
   annotate("text",
     x = max(p_values_df$n) + 40, y = 0,
     label = "p < 0.05", size = 15, color = "black", fontface = "bold", hjust = 1,
