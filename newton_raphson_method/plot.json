@@ -169,7 +169,7 @@
 "na.rm": false,
 "vjust":     -1.5,
 "colour": "#000000",
-"size":        5,
+"size":       15,
 "showSelected": "iteration",
 "help": "The text annotations show the numerical value of x at each iteration.",
 "help_showSelected": "iteration",

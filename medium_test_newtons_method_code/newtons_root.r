@@ -92,7 +92,7 @@ viz <- list(
         x = tangent_intercept, y = 0,
         label = paste("x:", sprintf("%.4f", tangent_intercept))
       ),
-      vjust = -1.5, hjust = 0.5, color = "black", size = 5,
+      vjust = -1.5, hjust = 0.5, color = "black", size = 15,
       showSelected = "iteration",
       help = "The text annotations show the numerical value of x at each iteration."
     ) +
