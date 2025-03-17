@@ -78,7 +78,7 @@ for (n in sample_sizes) {
     temp_df <- data.frame(
         n = n,
         mean = sample_means,
-        fill_var = "Sample Means" # Add a variable for fill aesthetic
+        Distribution = "Sample Means" 
     )
 
     density_df <- rbind(density_df, temp_df)
@@ -105,20 +105,27 @@ for (n in sample_sizes) {
         n = n,
         x = x_range,
         y = y_values,
-        color_var = "Normal Approx." # Add a variable for color aesthetic
+        Approximation = "Normal Approx." # Renamed color_var
     )
 
     normal_curve_df <- rbind(normal_curve_df, temp_df)
 }
+
+# Create a dataframe for toggling layers
+toggle_df <- data.frame(
+    Layer = c("Sample Means", "Normal Approx."),
+    Visible = c(TRUE, TRUE)
+)
 
 # Update the density plot to include p-value annotation
 density_plot <- ggplot() +
     geom_density(
         help = "This is the density plot of sample means for an exponential distribution. It shows how the distribution of sample means changes as the sample size increases.",
         data = density_df,
-        aes(x = mean, group = n, fill = fill_var),
+        aes(x = mean, group = n, fill = Distribution),
         alpha = 0.5,
-        showSelected = "n"
+        showSelected = "n",
+        hideSelected = "Layer"
     ) +
     geom_text(
         help = "This is the p-value from the Shapiro-Wilk test.",
@@ -135,10 +142,11 @@ density_plot <- ggplot() +
     ) +
     geom_line(
         data = normal_curve_df,
-        aes(x = x, y = y, group = n, color = color_var),
+        aes(x = x, y = y, group = n, color = Approximation),
         linetype = "dashed",
         size = 1,
         showSelected = "n",
+        hideSelected = "Layer",
         help = "The dashed red line represents the theoretical normal distribution based on the Central Limit Theorem. As the sample size increases, the sample means should converge to this distribution."
     ) +
     scale_fill_manual(values = c("Sample Means" = "steelblue"), name = "Distribution") +
@@ -211,8 +219,8 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = log10(p_value))) +
 clt_viz <- list(
     density = density_plot,
     pvalues = p_value_plot,
-    time = list(variable = "n", ms = 1000)
-)
+    time = list(variable = "n", ms = 1000,smooth(n)))
+
 
 # Save animation to directory
 animint2dir(clt_viz, out.dir = "clt_animation_exponential_fn")

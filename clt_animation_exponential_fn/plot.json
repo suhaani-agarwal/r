@@ -6,17 +6,18 @@
 "aes": {
  "x": "mean",
 "group": "n",
-"fill": "fill_var",
+"fill": "Distribution",
 "showSelected1": "n",
-"showSelected2": "fill_var" 
+"showSelected2": "Distribution" 
 },
 "params": {
  "na.rm": false,
 "na.rm": false,
 "alpha":      0.5,
 "help": "This is the density plot of sample means for an exponential distribution. It shows how the distribution of sample means changes as the sample size increases.",
-"showSelected": [ "n", "fill_var" ],
-"help_showSelected": [ "n", "fill_var" ] 
+"showSelected": [ "n", "Distribution" ],
+"hideSelected": "Layer",
+"help_showSelected": [ "n", "Distribution" ] 
 },
 "types": {
  "fill": "rgb",
@@ -133,18 +134,19 @@
  "x": "x",
 "y": "y",
 "group": "n",
-"colour": "color_var",
+"colour": "Approximation",
 "showSelected1": "n",
-"showSelected2": "color_var" 
+"showSelected2": "Approximation" 
 },
 "params": {
  "na.rm": false,
 "na.rm": false,
 "linetype": "dashed",
 "size":        1,
-"showSelected": [ "n", "color_var" ],
+"showSelected": [ "n", "Approximation" ],
+"hideSelected": "Layer",
 "help": "The dashed red line represents the theoretical normal distribution based on the Central Limit Theorem. As the sample size increases, the sample means should converge to this distribution.",
-"help_showSelected": [ "n", "color_var" ] 
+"help_showSelected": [ "n", "Approximation" ] 
 },
 "types": {
  "colour": "rgb",
@@ -419,10 +421,11 @@
 "time": {
  "variable": "n",
 "ms":     1000,
+"":      150,
 "sequence": [ "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75", "80", "85", "90", "95", "100", "105", "110", "115", "120", "125", "130", "135", "140", "145", "150" ] 
 },
 "selectors": {
- "fill_var": {
+ "Distribution": {
  "type": "multiple",
 "legend": true,
 "is.variable.value": false,
@@ -433,7 +436,7 @@
  "geom1_density_density" 
 ] 
 },
-"color_var": {
+"Approximation": {
  "type": "multiple",
 "legend": true,
 "is.variable.value": false,
@@ -470,8 +473,8 @@
  "guide": "legend",
 "geoms": "path",
 "title": "Approximation",
-"class": "color_var",
-"selector": "color_var",
+"class": "Approximation",
+"selector": "Approximation",
 "is_discrete": true,
 "legend_type": "colour",
 "text_size": "8.8pt",
@@ -489,8 +492,8 @@
  "guide": "legend",
 "geoms": "polygon",
 "title": "Distribution",
-"class": "fill_var",
-"selector": "fill_var",
+"class": "Distribution",
+"selector": "Distribution",
 "is_discrete": true,
 "legend_type": "fill",
 "text_size": "8.8pt",

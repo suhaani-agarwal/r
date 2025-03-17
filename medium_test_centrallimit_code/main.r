@@ -55,7 +55,7 @@ for (n in sample_sizes) {
 
   p_values_df <- rbind(p_values_df, data.frame(n = n, p_value = p_value))
 
-  temp_df <- data.frame(n = n, mean = sample_means, fill_var = "Sample Means")
+  temp_df <- data.frame(n = n, mean = sample_means, Distribution = "Sample Means")
   density_df <- rbind(density_df, temp_df)
 }
 
@@ -72,7 +72,7 @@ for (n in sample_sizes) {
     n = n,
     x = x_range,
     y = y_values,
-    color_var = "Normal Approx."
+    Approximation = "Normal Approx."
   )
   normal_curve_df <- rbind(normal_curve_df, temp_df)
 }
@@ -81,7 +81,7 @@ density_plot <- ggplot() +
   geom_density(
     help = "This is the density plot of sample means. It shows how the distribution of sample means changes as the sample size increases.",
     data = density_df,
-    aes(x = mean, group = n, fill = fill_var),
+    aes(x = mean, group = n, fill = Distribution),
     alpha = 0.5,
     showSelected = "n"
   ) +
@@ -100,7 +100,7 @@ density_plot <- ggplot() +
   ) +
   geom_line(
     data = normal_curve_df,
-    aes(x = x, y = y, group = n, color = color_var),
+    aes(x = x, y = y, group = n, color = Approximation),
     linetype = "dashed",
     size = 1,
     showSelected = "n",
@@ -150,6 +150,6 @@ p_value_plot <- ggplot(p_values_df,
   coord_cartesian(xlim = c(0, n_max + 40))
 
 
-clt_viz <- list(density = density_plot, pvalues = p_value_plot, time = list(variable = "n", ms = 1000))
+clt_viz <- list(density = density_plot, pvalues = p_value_plot, time = list(variable = "n", ms = 1000 , smooth=TRUE))
 
 animint2dir(clt_viz, out.dir = "clt_animation")
