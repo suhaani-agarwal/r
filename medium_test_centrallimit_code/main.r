@@ -86,7 +86,7 @@ density_plot <- ggplot() +
     showSelected = "n"
   ) +
   geom_text(
-    help = "This is the p-value from the Shapiro-Wilk test. A low p-value indicates that the sample means are not normally distributed.",
+    help = "This is the p-value from the Shapiro-Wilk test.",
     data = p_values_df,
     aes(
       x = 0.3, y = 4,
@@ -104,7 +104,7 @@ density_plot <- ggplot() +
     linetype = "dashed",
     size = 1,
     showSelected = "n",
-    help = "This is the theoretical normal distribution based on the Central Limit Theorem. As the sample size increases, the sample means should converge to this distribution."
+    help = "The red dashed line represents theoretical normal distribution based on the Central Limit Theorem. As the sample size increases, the sample means should converge to this distribution."
   ) +
   scale_fill_manual(values = c("Sample Means" = "steelblue"), name = "Distribution") +
   scale_color_manual(values = c("Normal Approx." = "red"), name = "Approximation") +
@@ -116,10 +116,10 @@ p_value_plot <- ggplot(p_values_df,
   aes(x = n, y = p_value)
 ) +
   geom_line(color = "red", size = 1,
-  help = "This plot shows the p-values from the Shapiro-Wilk test. A low p-value indicates that the sample means are not normally distributed.") +
+  help = "This plot shows the p-values from the Shapiro-Wilk test.") +
   geom_point(size = 2, color = "blue", clickSelects = "n") +
   geom_hline(yintercept = 0.05, linetype = "dashed", color = "black", size = 1,
-  help = "this line divides p_value accross the 0.05 value") +
+  help = "this line divides p_value accross the 0.05 value. A low p-value in this case suggests that the sample data does not fit the population mean well, and you may reject the null hypothesis that the sample mean equals the population mean.") +
   annotate("text",
     x = max(p_values_df$n) + 40, y = 0.09,
     label = "p > 0.05", size = 15, color = "black", fontface = "bold", hjust = 1,

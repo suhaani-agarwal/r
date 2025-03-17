@@ -103,7 +103,7 @@
 "size":       17,
 "colour": "#00008B",
 "fontface": "bold",
-"help": "This is the p-value from the Shapiro-Wilk test. A low p-value indicates that the sample means are not normally distributed.",
+"help": "This is the p-value from the Shapiro-Wilk test.",
 "showSelected": "n",
 "help_showSelected": "n",
 "anchor": "start" 
@@ -143,7 +143,7 @@
 "linetype": "dashed",
 "size":        1,
 "showSelected": [ "n", "color_var" ],
-"help": "This is the theoretical normal distribution based on the Central Limit Theorem. As the sample size increases, the sample means should converge to this distribution.",
+"help": "The red dashed line represents theoretical normal distribution based on the Central Limit Theorem. As the sample size increases, the sample means should converge to this distribution.",
 "help_showSelected": [ "n", "color_var" ] 
 },
 "types": {
@@ -273,7 +273,7 @@
 "linetype": "dashed",
 "colour": "#000000",
 "size":        1,
-"help": "this line divides p_value accross the 0.05 value" 
+"help": "this line divides p_value accross the 0.05 value. A low p-value in this case suggests that the sample data does not fit the population mean well, and you may reject the null hypothesis that the sample mean equals the population mean." 
 },
 "types": {
  "yintercept": "numeric",

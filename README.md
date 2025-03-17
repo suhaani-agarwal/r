@@ -32,7 +32,7 @@ The following objects are masked from ‘package:ggplot2’:
 
 ---
 - **Demonstration of Central Limit Theorem (Exponential Distribution Example)**: [Github Pages Link](https://suhaani-agarwal.github.io/r/clt_animation_exponential_fn/index.html)
-- **Code Link**: [medium_test_solution.R](https://github.com/suhaani-agarwal/r/tree/main/clt_animation_exponential_fn/clt_expo.r)
+- **Code Link**: [medium_test_solution.R](https://github.com/suhaani-agarwal/r/tree/main/clt_animation_exponential_code/cltexpo.r)
 
 ---
 

@@ -10,7 +10,8 @@
  "na.rm": false,
 "na.rm": false,
 "colour": "#BEBEBE",
-"linetype": "dashed" 
+"linetype": "dashed",
+"help": "This line represents f(x) = 0, showing where we seek the root." 
 },
 "types": {
  "yintercept": "numeric",
@@ -34,7 +35,8 @@
  "na.rm": false,
 "na.rm": false,
 "colour": "#000000",
-"size":      1.2 
+"size":      1.2,
+"help": "The black curve represents the function f(x), whose root we are approximating." 
 },
 "types": {
  "x": "numeric",
@@ -63,6 +65,7 @@
 "linetype": "dashed",
 "alpha":      0.5,
 "showSelected": "iteration",
+"help": "The red dashed lines are the tangent lines at each iteration of the Newton-Raphson method.",
 "help_showSelected": "iteration" 
 },
 "types": {
@@ -98,6 +101,7 @@
 "colour": "#0000FF",
 "size":        3,
 "showSelected": "iteration",
+"help": "The blue points indicate the successive approximations of the root.",
 "help_showSelected": "iteration" 
 },
 "types": {
@@ -130,6 +134,7 @@
 "colour": "#FFA500",
 "size":        1,
 "showSelected": "iteration",
+"help": "The orange vertical lines mark the next x-values computed at each iteration.",
 "help_showSelected": "iteration" 
 },
 "types": {
@@ -164,8 +169,9 @@
 "na.rm": false,
 "vjust":     -1.5,
 "colour": "#000000",
-"size":       15,
+"size":        5,
 "showSelected": "iteration",
+"help": "The text annotations show the numerical value of x at each iteration.",
 "help_showSelected": "iteration",
 "anchor": "middle" 
 },

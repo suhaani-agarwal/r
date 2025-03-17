@@ -14,6 +14,7 @@
  "na.rm": false,
 "na.rm": false,
 "alpha":      0.5,
+"help": "This is the density plot of sample means for an exponential distribution. It shows how the distribution of sample means changes as the sample size increases.",
 "showSelected": [ "n", "fill_var" ],
 "help_showSelected": [ "n", "fill_var" ] 
 },
@@ -102,6 +103,7 @@
 "size":       17,
 "colour": "#00008B",
 "fontface": "bold",
+"help": "This is the p-value from the Shapiro-Wilk test.",
 "showSelected": "n",
 "help_showSelected": "n",
 "anchor": "start" 
@@ -141,6 +143,7 @@
 "linetype": "dashed",
 "size":        1,
 "showSelected": [ "n", "color_var" ],
+"help": "The dashed red line represents the theoretical normal distribution based on the Central Limit Theorem. As the sample size increases, the sample means should converge to this distribution.",
 "help_showSelected": [ "n", "color_var" ] 
 },
 "types": {
@@ -242,6 +245,7 @@
 "size":        2,
 "colour": "#0000FF",
 "clickSelects": "n",
+"help": "The blue points represent the p-values for each sample size. Click on a point to see the corresponding density plot.",
 "help_clickSelects": "n" 
 },
 "types": {
@@ -298,7 +302,8 @@
 "na.rm": false,
 "linetype": "dashed",
 "colour": "#000000",
-"size":        1 
+"size":        1,
+"help": "The dashed black line represents the significance threshold (p = 0.05)" 
 },
 "types": {
  "yintercept": "numeric",
@@ -325,6 +330,7 @@
 "size":       17,
 "colour": "#000000",
 "fontface": "bold",
+"help": "region above represents p > 0.05",
 "anchor": "end" 
 },
 "types": {
@@ -354,6 +360,7 @@
 "size":       17,
 "colour": "#000000",
 "fontface": "bold",
+"help": "region below represents p < 0.05",
 "anchor": "end" 
 },
 "types": {
@@ -459,10 +466,29 @@
  "density": {
  "panel_margin_lines":     0.25,
 "legend": {
- "": {
+ "Approximation": {
+ "guide": "legend",
+"geoms": "path",
+"title": "Approximation",
+"class": "color_var",
+"selector": "color_var",
+"is_discrete": true,
+"legend_type": "colour",
+"text_size": "8.8pt",
+"title_size": "11pt",
+"entries": [
+ {
+ "pathcolour": "#FF0000",
+"pathsize":        1,
+"pathlinetype": "dashed",
+"label": "Normal Approx." 
+} 
+] 
+},
+"Distribution": {
  "guide": "legend",
 "geoms": "polygon",
-"title": "",
+"title": "Distribution",
 "class": "fill_var",
 "selector": "fill_var",
 "is_discrete": true,
@@ -478,25 +504,6 @@
 "polygonsize":      0.5,
 "polygonlinetype":        1,
 "label": "Sample Means" 
-} 
-] 
-},
-"": {
- "guide": "legend",
-"geoms": "path",
-"title": "",
-"class": "color_var",
-"selector": "color_var",
-"is_discrete": true,
-"legend_type": "colour",
-"text_size": "8.8pt",
-"title_size": "11pt",
-"entries": [
- {
- "pathcolour": "#FF0000",
-"pathsize":        1,
-"pathlinetype": "dashed",
-"label": "Normal Approx." 
 } 
 ] 
 } 
