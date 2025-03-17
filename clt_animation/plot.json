@@ -105,8 +105,7 @@
 "fontface": "bold",
 "help": "This is the p-value from the Shapiro-Wilk test.",
 "showSelected": "n",
-"help_showSelected": "n",
-"anchor": "start" 
+"help_showSelected": "n" 
 },
 "types": {
  "x": "numeric",

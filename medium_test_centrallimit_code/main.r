@@ -95,7 +95,7 @@ density_plot <- ggplot() +
     size = 17,
     color = "darkblue",
     fontface = "bold",
-    hjust = 0, # Slightly shift text to the right for visibility
+    # hjust = 0, # Slightly shift text to the right for visibility
     showSelected = "n"
   ) +
   geom_line(
