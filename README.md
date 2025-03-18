@@ -40,3 +40,7 @@ The following objects are masked from ‘package:ggplot2’:
 - **Gallery Link**: [suhaani-animint-gallery](https://suhaani-agarwal.github.io/suhaani-animint-gallery/)
 - **Code Link**: [suhaani-animint-gallery/index.Rmd](https://github.com/suhaani-agarwal/suhaani-animint-gallery/blob/main/index.Rmd)
 
+---
+### 4. Hard Test Solution
+- **Video Link**: [newtonmethod-test-render](https://youtu.be/54EY5acNjK4)
+- **PR link**: [newtonmethod-test-render](https://github.com/animint/animint2/pull/190)
