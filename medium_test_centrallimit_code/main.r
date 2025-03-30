@@ -84,7 +84,7 @@ density_plot <- ggplot() +
     aes(x = 0.3, y = 4,
         label = ifelse(p_value < 0.0001, "p_val<0.0001", 
                       sprintf("p_val=%.4f", p_value))),
-    size = 15,
+    size = 17,
     color = "darkblue",
     fontface = "bold",
     showSelected = "n"
