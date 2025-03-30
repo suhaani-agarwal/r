@@ -287,17 +287,44 @@
 "aes": {
  "xmin": "n - interval_step/2",
 "xmax": "n + interval_step/2",
-"id": "paste0(\"rect\", n)",
+"clickSelects": "n" 
+},
+"params": {
+ "na.rm": false,
+"na.rm": false,
+"alpha":        0,
 "clickSelects": "n",
+"help_clickSelects": "n" 
+},
+"types": {
+ "x": "numeric",
+"xmin": "numeric",
+"xmax": "numeric",
+"y": "numeric",
+"clickSelects": "numeric",
+"PANEL": "integer",
+"group": "character" 
+},
+"chunk_order": [],
+"nest_order": [],
+"subset_order": [],
+"chunks": 1,
+"total": 1 
+},
+"geom8_tallrect_pvalues": {
+ "geom": "tallrect",
+"classed": "geom8_tallrect_pvalues",
+"aes": {
+ "xmin": "n - interval_step/2",
+"xmax": "n + interval_step/2",
+"id": "paste0(\"rect\", n)",
 "showSelected1": "n" 
 },
 "params": {
  "na.rm": false,
 "na.rm": false,
 "alpha":      0.2,
-"clickSelects": "n",
 "showSelected": "n",
-"help_clickSelects": "n",
 "help_showSelected": "n" 
 },
 "types": {
@@ -306,7 +333,6 @@
 "xmax": "numeric",
 "y": "numeric",
 "id": "character",
-"clickSelects": "numeric",
 "showSelected1": "numeric",
 "PANEL": "integer",
 "group": "character" 
@@ -321,9 +347,9 @@
 "chunks": 1,
 "total": 1 
 },
-"geom8_text_pvalues": {
+"geom9_text_pvalues": {
  "geom": "text",
-"classed": "geom8_text_pvalues",
+"classed": "geom9_text_pvalues",
 "aes": {
  "x": "x",
 "y": "y" 
@@ -350,9 +376,9 @@
 "chunks": 1,
 "total": 1 
 },
-"geom9_text_pvalues": {
+"geom10_text_pvalues": {
  "geom": "text",
-"classed": "geom9_text_pvalues",
+"classed": "geom10_text_pvalues",
 "aes": {
  "x": "x",
 "y": "y" 
@@ -379,9 +405,9 @@
 "chunks": 1,
 "total": 1 
 },
-"geom10_text_pvalues": {
+"geom11_text_pvalues": {
  "geom": "text",
-"classed": "geom10_text_pvalues",
+"classed": "geom11_text_pvalues",
 "aes": {
  "x": "n",
 "y": "p_value + 0.02",
@@ -465,7 +491,8 @@
 "geom3_text_density",
 "geom5_point_pvalues",
 "geom7_tallrect_pvalues",
-"geom10_text_pvalues" 
+"geom8_tallrect_pvalues",
+"geom11_text_pvalues" 
 ],
 "duration":     1500 
 } 
@@ -840,9 +867,10 @@
 "geom5_point_pvalues",
 "geom6_hline_pvalues",
 "geom7_tallrect_pvalues",
-"geom8_text_pvalues",
+"geom8_tallrect_pvalues",
 "geom9_text_pvalues",
-"geom10_text_pvalues" 
+"geom10_text_pvalues",
+"geom11_text_pvalues" 
 ] 
 } 
 },

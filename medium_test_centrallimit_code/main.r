@@ -101,16 +101,17 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = p_value)) +
   geom_line(aes(group = 1), color = "red", size = 1) +
   geom_point(size = 3, color = "blue", clickSelects = "n") +
   geom_hline(yintercept = 0.05, linetype = "dashed", color = "black", size = 1) +
-  
-  # Modified tallrect for smooth movement
+  geom_tallrect(aes(
+    xmin = n - interval_step/2,
+    xmax = n + interval_step/2),
+    clickSelects = "n",
+    alpha = 0) +  # Completely transparent but clickable
   geom_tallrect(aes(
     xmin = n - interval_step/2, 
     xmax = n + interval_step/2,
-    id = paste0("rect", n)  # Add unique ID for each rectangle
-  ),
-  clickSelects = "n",
-  alpha = 0.2,
-  showSelected = "n") +
+    id = paste0("rect", n)),
+    alpha = 0.2,
+    showSelected = "n") +  # Smoothly follows selection
   annotate("text", x = max(p_values_df$n) + 40, y = 0.09,
            label = "p > 0.05", size = 15, color = "black", fontface = "bold", hjust = 1) +
   annotate("text", x = max(p_values_df$n) + 40, y = 0,
