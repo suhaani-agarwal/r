@@ -13,21 +13,13 @@ interval_step <- 5 # Increment for sample size n
 
 # Function to generate sample means for a given sample size
 generate_sample_means <- function(dist_type = "norm", sample_size, n_samples) {
-  # Generate sample means based on the specified distribution
   if (dist_type == "exp") {
-    sample_means <- sapply(1:n_samples, function(i) {
-      mean(rexp(sample_size, rate = 1))
-    })
+    sample_means <- sapply(1:n_samples, function(i) mean(rexp(sample_size, rate = 1)))
   } else if (dist_type == "unif") {
-    sample_means <- sapply(1:n_samples, function(i) {
-      mean(runif(sample_size))
-    })
+    sample_means <- sapply(1:n_samples, function(i) mean(runif(sample_size)))
   } else {
-    sample_means <- sapply(1:n_samples, function(i) {
-      mean(rnorm(sample_size, mean = 0, sd = 1))
-    })
+    sample_means <- sapply(1:n_samples, function(i) mean(rnorm(sample_size, mean = 0, sd = 1)))
   }
-
   return(sample_means)
 }
 
@@ -39,9 +31,6 @@ calculate_p_value <- function(sample_means) {
 # Generate data for all sample sizes
 sample_sizes <- seq(5, n_max, by = interval_step)
 dist_type <- "norm" # Using normal distribution
-
-
-# Define parameters for normal distribution
 true_mean <- 0
 true_sd <- 1
 
@@ -52,50 +41,35 @@ p_values_df <- data.frame()
 for (n in sample_sizes) {
   sample_means <- generate_sample_means(dist_type, n, n_samples)
   p_value <- calculate_p_value(sample_means)
-
+  
   p_values_df <- rbind(p_values_df, data.frame(n = n, p_value = p_value))
-
+  
   temp_df <- data.frame(n = n, mean = sample_means, Distribution = "Sample Means")
   density_df <- rbind(density_df, temp_df)
 }
 
+# Order data by n for smooth transitions
+density_df <- density_df[order(density_df$n),]
+p_values_df <- p_values_df[order(p_values_df$n),]
+
 normal_curve_df <- data.frame()
 for (n in sample_sizes) {
   se <- true_sd / sqrt(n)
-  x_range <- seq(
-    min(density_df$mean[density_df$n == n]),
-    max(density_df$mean[density_df$n == n]),
-    length.out = 200
-  )
+  x_range <- seq(min(density_df$mean[density_df$n == n]), 
+                 max(density_df$mean[density_df$n == n]), 
+                 length.out = 200)
   y_values <- dnorm(x_range, mean = true_mean, sd = se)
-  temp_df <- data.frame(
-    n = n,
-    x = x_range,
-    y = y_values,
-    Approximation = "Normal Approx."
-  )
+  temp_df <- data.frame(n = n, x = x_range, y = y_values, 
+                        Approximation = "Normal Approx.")
   normal_curve_df <- rbind(normal_curve_df, temp_df)
 }
 
+# Create density plot with smooth transition capabilities
 density_plot <- ggplot() +
   geom_density(
-    help = "This is the density plot of sample means. It shows how the distribution of sample means changes as the sample size increases.",
     data = density_df,
     aes(x = mean, group = n, fill = Distribution),
     alpha = 0.5,
-    showSelected = "n"
-  ) +
-  geom_text(
-    help = "This is the p-value from the Shapiro-Wilk test.",
-    data = p_values_df,
-    aes(
-      x = 0.3, y = 4,
-      label = ifelse(p_value < 0.0001, "p_val<0.0001", sprintf("p_val=%.4f", p_value))
-    ),
-    size = 17,
-    color = "darkblue",
-    fontface = "bold",
-    # hjust = 0, # Slightly shift text to the right for visibility
     showSelected = "n"
   ) +
   geom_line(
@@ -103,53 +77,65 @@ density_plot <- ggplot() +
     aes(x = x, y = y, group = n, color = Approximation),
     linetype = "dashed",
     size = 1,
-    showSelected = "n",
-    help = "The red dashed line represents theoretical normal distribution based on the Central Limit Theorem. As the sample size increases, the sample means should converge to this distribution."
+    showSelected = "n"
   ) +
-  scale_fill_manual(values = c("Sample Means" = "steelblue"), name = "Distribution") +
-  scale_color_manual(values = c("Normal Approx." = "red"), name = "Approximation") +
-  labs(title = "Central Limit Theorem - Normal Distribution", x = "Sample Mean", y = "Density") +
-  theme(legend.position = "bottom") +
-  coord_cartesian(xlim = c(-1, x_range + 0.5))
-
-p_value_plot <- ggplot(p_values_df,
-  aes(x = n, y = p_value)
-) +
-  geom_line(color = "red", size = 1,
-  help = "This plot shows the p-values from the Shapiro-Wilk test.") +
-  geom_point(size = 2, color = "blue", clickSelects = "n") +
-  geom_hline(yintercept = 0.05, linetype = "dashed", color = "black", size = 1,
-  help = "this line divides p_value accross the 0.05 value. A low p-value in this case suggests that the sample data does not fit the population mean well, and you may reject the null hypothesis that the sample mean equals the population mean.") +
-  annotate("text",
-    x = max(p_values_df$n) + 40, y = 0.09,
-    label = "p > 0.05", size = 15, color = "black", fontface = "bold", hjust = 1,
-    help="p_values > 0.05"
-  ) +
-  geom_tallrect(aes(xmin = n - interval_step / 2, xmax = n + interval_step / 2),
-        clickSelects = "n",
-        alpha = 0.2
-    ) +
-  annotate("text",
-    x = max(p_values_df$n) + 40, y = 0,
-    label = "p < 0.05", size = 15, color = "black", fontface = "bold", hjust = 1,
-    help="p_values < 0.05"
-  ) +
-  labs(title = "Shapiro-Wilk Test P-values", x = "Sample Size (n)", y = "P-Value") +
   geom_text(
     data = p_values_df,
-    aes(
-      x = n, y = p_value + 0.02,
-      label = paste("p-val=", round(p_value, 4))
-    ),
+    aes(x = 0.3, y = 4,
+        label = ifelse(p_value < 0.0001, "p_val<0.0001", 
+                      sprintf("p_val=%.4f", p_value))),
     size = 15,
     color = "darkblue",
     fontface = "bold",
-    hjust = 0, # Slightly shift text to the right for visibility
     showSelected = "n"
   ) +
+  scale_fill_manual(values = c("Sample Means" = "steelblue")) +
+  scale_color_manual(values = c("Normal Approx." = "red")) +
+  labs(title = "Central Limit Theorem - Normal Distribution", 
+       x = "Sample Mean", y = "Density") +
+  theme(legend.position = "bottom") +
+  coord_cartesian(xlim = c(-1, 1))
+
+# Create p-value plot with smooth transition
+p_value_plot <- ggplot(p_values_df, aes(x = n, y = p_value)) +
+  geom_line(aes(group = 1), color = "red", size = 1) +
+  geom_point(size = 3, color = "blue", clickSelects = "n") +
+  geom_hline(yintercept = 0.05, linetype = "dashed", color = "black", size = 1) +
+  
+  # Modified tallrect for smooth movement
+  geom_tallrect(aes(
+    xmin = n - interval_step/2, 
+    xmax = n + interval_step/2,
+    id = paste0("rect", n)  # Add unique ID for each rectangle
+  ),
+  clickSelects = "n",
+  alpha = 0.2,
+  showSelected = "n") +  # Add showSelected to enable smooth transitions
+  
+  # Rest of your existing annotations...
+  annotate("text", x = max(p_values_df$n) + 40, y = 0.09,
+           label = "p > 0.05", size = 15, color = "black", fontface = "bold", hjust = 1) +
+  annotate("text", x = max(p_values_df$n) + 40, y = 0,
+           label = "p < 0.05", size = 15, color = "black", fontface = "bold", hjust = 1) +
+  geom_text(aes(x = n, y = p_value + 0.02,
+                label = paste("p-val=", round(p_value, 4))),
+            size = 15, color = "darkblue",
+            fontface = "bold", hjust = 0,
+            showSelected = "n") +
+  labs(title = "Shapiro-Wilk Test P-values", x = "Sample Size (n)", y = "P-Value") +
   coord_cartesian(xlim = c(0, n_max + 40))
+# Final animation specification with smooth transitions
+clt_viz <- list(
+  density = density_plot,
+  pvalues = p_value_plot,
+  duration = list(n = 1500),  # 1.5 second transitions
+  time = list(
+    variable = "n",
+    ms = 2000,  # 2 second frame duration
+    smooth = TRUE  # Enable smooth interpolation
+  ),
+  title = "Central Limit Theorem Demonstration"
+)
 
-
-clt_viz <- list(density = density_plot, pvalues = p_value_plot, time = list(variable = "n", ms = 1000 , smooth=TRUE))
-
+# Generate the animation
 animint2dir(clt_viz, out.dir = "clt_animation")

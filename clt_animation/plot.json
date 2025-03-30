@@ -14,7 +14,6 @@
  "na.rm": false,
 "na.rm": false,
 "alpha":      0.5,
-"help": "This is the density plot of sample means. It shows how the distribution of sample means changes as the sample size increases.",
 "showSelected": [ "n", "Distribution" ],
 "help_showSelected": [ "n", "Distribution" ] 
 },
@@ -86,48 +85,9 @@
 },
 "total": 30 
 },
-"geom2_text_density": {
- "geom": "text",
-"classed": "geom2_text_density",
-"aes": {
- "x": "0.3",
-"y": "4",
-"label": "ifelse(p_value < 1e-04, \"p_val<0.0001\", sprintf(\"p_val=%.4f\", p_value))",
-"showSelected1": "n" 
-},
-"params": {
- "parse": false,
-"check_overlap": false,
-"na.rm": false,
-"na.rm": false,
-"size":       17,
-"colour": "#00008B",
-"fontface": "bold",
-"help": "This is the p-value from the Shapiro-Wilk test.",
-"showSelected": "n",
-"help_showSelected": "n" 
-},
-"types": {
- "x": "numeric",
-"y": "numeric",
-"label": "character",
-"showSelected1": "numeric",
-"PANEL": "integer",
-"group": "character" 
-},
-"chunk_order": [],
-"nest_order": [
- "showSelected1" 
-],
-"subset_order": [
- "showSelected1" 
-],
-"chunks": 1,
-"total": 1 
-},
-"geom3_line_density": {
+"geom2_line_density": {
  "geom": "line",
-"classed": "geom3_line_density",
+"classed": "geom2_line_density",
 "aes": {
  "x": "x",
 "y": "y",
@@ -142,7 +102,6 @@
 "linetype": "dashed",
 "size":        1,
 "showSelected": [ "n", "Approximation" ],
-"help": "The red dashed line represents theoretical normal distribution based on the Central Limit Theorem. As the sample size increases, the sample means should converge to this distribution.",
 "help_showSelected": [ "n", "Approximation" ] 
 },
 "types": {
@@ -205,28 +164,66 @@
 },
 "total": 30 
 },
+"geom3_text_density": {
+ "geom": "text",
+"classed": "geom3_text_density",
+"aes": {
+ "x": "0.3",
+"y": "4",
+"label": "ifelse(p_value < 1e-04, \"p_val<0.0001\", sprintf(\"p_val=%.4f\", p_value))",
+"showSelected1": "n" 
+},
+"params": {
+ "parse": false,
+"check_overlap": false,
+"na.rm": false,
+"na.rm": false,
+"size":       15,
+"colour": "#00008B",
+"fontface": "bold",
+"showSelected": "n",
+"help_showSelected": "n" 
+},
+"types": {
+ "x": "numeric",
+"y": "numeric",
+"label": "character",
+"showSelected1": "numeric",
+"PANEL": "integer",
+"group": "character" 
+},
+"chunk_order": [],
+"nest_order": [
+ "showSelected1" 
+],
+"subset_order": [
+ "showSelected1" 
+],
+"chunks": 1,
+"total": 1 
+},
 "geom4_line_pvalues": {
  "geom": "line",
 "classed": "geom4_line_pvalues",
 "aes": {
- "x": "n",
-"y": "p_value" 
+ "group": "1" 
 },
 "params": {
  "na.rm": false,
 "na.rm": false,
 "colour": "#FF0000",
-"size":        1,
-"help": "This plot shows the p-values from the Shapiro-Wilk test." 
+"size":        1 
 },
 "types": {
  "x": "numeric",
 "y": "numeric",
-"PANEL": "integer",
-"group": "character" 
+"group": "character",
+"PANEL": "integer" 
 },
 "chunk_order": [],
-"nest_order": [],
+"nest_order": [
+ "group" 
+],
 "subset_order": [],
 "chunks": 1,
 "total": 1 
@@ -242,7 +239,7 @@
 "params": {
  "na.rm": false,
 "na.rm": false,
-"size":        2,
+"size":        3,
 "colour": "#0000FF",
 "clickSelects": "n",
 "help_clickSelects": "n" 
@@ -271,8 +268,7 @@
 "na.rm": false,
 "linetype": "dashed",
 "colour": "#000000",
-"size":        1,
-"help": "this line divides p_value accross the 0.05 value. A low p-value in this case suggests that the sample data does not fit the population mean well, and you may reject the null hypothesis that the sample mean equals the population mean." 
+"size":        1 
 },
 "types": {
  "yintercept": "numeric",
@@ -285,9 +281,49 @@
 "chunks": 1,
 "total": 1 
 },
-"geom7_text_pvalues": {
+"geom7_tallrect_pvalues": {
+ "geom": "tallrect",
+"classed": "geom7_tallrect_pvalues",
+"aes": {
+ "xmin": "n - interval_step/2",
+"xmax": "n + interval_step/2",
+"id": "paste0(\"rect\", n)",
+"clickSelects": "n",
+"showSelected1": "n" 
+},
+"params": {
+ "na.rm": false,
+"na.rm": false,
+"alpha":      0.2,
+"clickSelects": "n",
+"showSelected": "n",
+"help_clickSelects": "n",
+"help_showSelected": "n" 
+},
+"types": {
+ "x": "numeric",
+"xmin": "numeric",
+"xmax": "numeric",
+"y": "numeric",
+"id": "character",
+"clickSelects": "numeric",
+"showSelected1": "numeric",
+"PANEL": "integer",
+"group": "character" 
+},
+"chunk_order": [],
+"nest_order": [
+ "showSelected1" 
+],
+"subset_order": [
+ "showSelected1" 
+],
+"chunks": 1,
+"total": 1 
+},
+"geom8_text_pvalues": {
  "geom": "text",
-"classed": "geom7_text_pvalues",
+"classed": "geom8_text_pvalues",
 "aes": {
  "x": "x",
 "y": "y" 
@@ -299,7 +335,6 @@
 "size":       15,
 "colour": "#000000",
 "fontface": "bold",
-"help": "p_values > 0.05",
 "anchor": "end" 
 },
 "types": {
@@ -308,36 +343,6 @@
 "PANEL": "integer",
 "group": "character",
 "label": "character" 
-},
-"chunk_order": [],
-"nest_order": [],
-"subset_order": [],
-"chunks": 1,
-"total": 1 
-},
-"geom8_tallrect_pvalues": {
- "geom": "tallrect",
-"classed": "geom8_tallrect_pvalues",
-"aes": {
- "xmin": "n - interval_step/2",
-"xmax": "n + interval_step/2",
-"clickSelects": "n" 
-},
-"params": {
- "na.rm": false,
-"na.rm": false,
-"alpha":      0.2,
-"clickSelects": "n",
-"help_clickSelects": "n" 
-},
-"types": {
- "x": "numeric",
-"xmin": "numeric",
-"xmax": "numeric",
-"y": "numeric",
-"clickSelects": "numeric",
-"PANEL": "integer",
-"group": "character" 
 },
 "chunk_order": [],
 "nest_order": [],
@@ -359,7 +364,6 @@
 "size":       15,
 "colour": "#000000",
 "fontface": "bold",
-"help": "p_values < 0.05",
 "anchor": "end" 
 },
 "types": {
@@ -417,9 +421,12 @@
 },
 "time": {
  "variable": "n",
-"ms":     1000,
+"ms":     2000,
 "smooth": true,
 "sequence": [ "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75", "80", "85", "90", "95", "100", "105", "110", "115", "120", "125", "130", "135", "140", "145", "150" ] 
+},
+"duration": {
+ "n":     1500 
 },
 "selectors": {
  "Distribution": {
@@ -441,7 +448,7 @@
 "selected": "Normal Approx.",
 "levels": "Normal Approx.",
 "update": [
- "geom3_line_density" 
+ "geom2_line_density" 
 ] 
 },
 "n": {
@@ -454,12 +461,13 @@
 "levels": [ "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75", "80", "85", "90", "95", "100", "105", "110", "115", "120", "125", "130", "135", "140", "145", "150" ],
 "update": [
  "geom1_density_density",
-"geom2_text_density",
-"geom3_line_density",
+"geom2_line_density",
+"geom3_text_density",
 "geom5_point_pvalues",
-"geom8_tallrect_pvalues",
+"geom7_tallrect_pvalues",
 "geom10_text_pvalues" 
-] 
+],
+"duration":     1500 
 } 
 },
 "plots": {
@@ -550,7 +558,8 @@
        -1,
     -0.5,
        0,
-     0.5 
+     0.5,
+       1 
 ] 
 ],
 "y": [
@@ -580,7 +589,8 @@
        0,
     0.25,
      0.5,
-    0.75 
+    0.75,
+       1 
 ] 
 ],
 "y": [
@@ -605,15 +615,17 @@
        -1,
     -0.5,
        0,
-     0.5 
+     0.5,
+       1 
 ],
 "xlab": [
  "-1.0",
 "-0.5",
 "0.0",
-"0.5" 
+"0.5",
+"1.0" 
 ],
-"xrange": [ -1.087331, 0.8339472 ],
+"xrange": [     -1.1,      1.1 ],
 "xline": true,
 "xticks": true,
 "y": [
@@ -650,7 +662,8 @@
  "-1.0",
 "-0.5",
 "0.0",
-"0.5" 
+"0.5",
+"1.0" 
 ],
 "ylabs": [
  "0",
@@ -668,8 +681,8 @@
 },
 "geoms": [
  "geom1_density_density",
-"geom2_text_density",
-"geom3_line_density" 
+"geom2_line_density",
+"geom3_text_density" 
 ] 
 },
 "pvalues": {
@@ -826,11 +839,12 @@
  "geom4_line_pvalues",
 "geom5_point_pvalues",
 "geom6_hline_pvalues",
-"geom7_text_pvalues",
-"geom8_tallrect_pvalues",
+"geom7_tallrect_pvalues",
+"geom8_text_pvalues",
 "geom9_text_pvalues",
 "geom10_text_pvalues" 
 ] 
 } 
-} 
+},
+"title": "Central Limit Theorem Demonstration" 
 }
