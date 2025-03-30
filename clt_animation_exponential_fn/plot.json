@@ -212,8 +212,7 @@
  "geom": "line",
 "classed": "geom4_line_pvalues",
 "aes": {
- "x": "n",
-"y": "log10(p_value)" 
+ "group": "1" 
 },
 "params": {
  "na.rm": false,
@@ -224,11 +223,13 @@
 "types": {
  "x": "numeric",
 "y": "numeric",
-"PANEL": "integer",
-"group": "character" 
+"group": "character",
+"PANEL": "integer" 
 },
 "chunk_order": [],
-"nest_order": [],
+"nest_order": [
+ "group" 
+],
 "subset_order": [],
 "chunks": 1,
 "total": 1 
@@ -244,10 +245,9 @@
 "params": {
  "na.rm": false,
 "na.rm": false,
-"size":        2,
+"size":        3,
 "colour": "#0000FF",
 "clickSelects": "n",
-"help": "The blue points represent the p-values for each sample size. Click on a point to see the corresponding density plot.",
 "help_clickSelects": "n" 
 },
 "types": {
@@ -269,27 +269,37 @@
 "aes": {
  "xmin": "n - interval_step/2",
 "xmax": "n + interval_step/2",
-"clickSelects": "n" 
+"id": "paste0(\"rect\", n)",
+"clickSelects": "n",
+"showSelected1": "n" 
 },
 "params": {
  "na.rm": false,
 "na.rm": false,
 "alpha":      0.2,
 "clickSelects": "n",
-"help_clickSelects": "n" 
+"showSelected": "n",
+"help_clickSelects": "n",
+"help_showSelected": "n" 
 },
 "types": {
  "x": "numeric",
 "xmin": "numeric",
 "xmax": "numeric",
 "y": "numeric",
+"id": "character",
 "clickSelects": "numeric",
+"showSelected1": "numeric",
 "PANEL": "integer",
 "group": "character" 
 },
 "chunk_order": [],
-"nest_order": [],
-"subset_order": [],
+"nest_order": [
+ "showSelected1" 
+],
+"subset_order": [
+ "showSelected1" 
+],
 "chunks": 1,
 "total": 1 
 },
@@ -420,9 +430,12 @@
 },
 "time": {
  "variable": "n",
-"ms":     1000,
-"":      150,
+"ms":     1500,
+"smooth": true,
 "sequence": [ "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75", "80", "85", "90", "95", "100", "105", "110", "115", "120", "125", "130", "135", "140", "145", "150" ] 
+},
+"duration": {
+ "n":     1000 
 },
 "selectors": {
  "Distribution": {
@@ -462,7 +475,8 @@
 "geom5_point_pvalues",
 "geom6_tallrect_pvalues",
 "geom10_text_pvalues" 
-] 
+],
+"duration":     1000 
 } 
 },
 "plots": {

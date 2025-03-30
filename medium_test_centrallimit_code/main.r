@@ -110,9 +110,7 @@ p_value_plot <- ggplot(p_values_df, aes(x = n, y = p_value)) +
   ),
   clickSelects = "n",
   alpha = 0.2,
-  showSelected = "n") +  # Add showSelected to enable smooth transitions
-  
-  # Rest of your existing annotations...
+  showSelected = "n") +
   annotate("text", x = max(p_values_df$n) + 40, y = 0.09,
            label = "p > 0.05", size = 15, color = "black", fontface = "bold", hjust = 1) +
   annotate("text", x = max(p_values_df$n) + 40, y = 0,
