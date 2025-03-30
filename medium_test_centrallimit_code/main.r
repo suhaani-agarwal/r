@@ -67,6 +67,7 @@ for (n in sample_sizes) {
 # Create density plot with smooth transition capabilities
 density_plot <- ggplot() +
   geom_density(
+    help = "This is the density plot of sample means for a normal distribution. It shows how the distribution of sample means changes as the sample size increases.",
     data = density_df,
     aes(x = mean, group = n, fill = Distribution),
     alpha = 0.5,
@@ -77,9 +78,11 @@ density_plot <- ggplot() +
     aes(x = x, y = y, group = n, color = Approximation),
     linetype = "dashed",
     size = 1,
+    help = "The dashed red line represents the theoretical normal distribution based on the Central Limit Theorem. As the sample size increases, the sample means should converge to this distribution.",
     showSelected = "n"
   ) +
   geom_text(
+    help = "This is the p-value from the Shapiro-Wilk test.",
     data = p_values_df,
     aes(x = 0.3, y = 4,
         label = ifelse(p_value < 0.0001, "p_val<0.0001", 
@@ -98,10 +101,17 @@ density_plot <- ggplot() +
 
 # Create p-value plot with smooth transition
 p_value_plot <- ggplot(p_values_df, aes(x = n, y = p_value)) +
-  geom_line(aes(group = 1), color = "red", size = 1) +
-  geom_point(size = 3, color = "blue", clickSelects = "n") +
-  geom_hline(yintercept = 0.05, linetype = "dashed", color = "black", size = 1) +
+  geom_line(aes(group = 1), color = "red", size = 1,
+  help = "Trend line showing how p-values from Shapiro-Wilk normality test change with increasing sample size") +
+  geom_point(size = 3, color = "blue", clickSelects = "n",
+  help = "Click on any point to select and view details for that specific sample size") +
+  geom_hline(yintercept = 0.05,
+   linetype = "dashed",
+    color = "black",
+     size = 1,
+     help="The dashed black line represents the significance threshold (p = 0.05)") +
   geom_tallrect(aes(
+    help = "Click anywhere in the chart to select and view results for specific sample sizes",
     xmin = n - interval_step/2,
     xmax = n + interval_step/2),
     clickSelects = "n",

@@ -1,31 +1,31 @@
-x	xmin	xmax	y	clickSelects	group
-5	2.5	7.5	0.227990611537619	5	-1
-10	7.5	12.5	0.237132591990712	10	-1
-15	12.5	17.5	0.0473389509965438	15	-1
-20	17.5	22.5	0.248433622719037	20	-1
-25	22.5	27.5	0.321035031726622	25	-1
-30	27.5	32.5	0.108523434645282	30	-1
-35	32.5	37.5	0.233498882131427	35	-1
-40	37.5	42.5	0.754105496827069	40	-1
-45	42.5	47.5	0.440276273133617	45	-1
-50	47.5	52.5	0.286472353377839	50	-1
-55	52.5	57.5	0.403368666518786	55	-1
-60	57.5	62.5	0.340840644884569	60	-1
-65	62.5	67.5	0.730528311201193	65	-1
-70	67.5	72.5	0.763804880290993	70	-1
-75	72.5	77.5	0.0531390645049934	75	-1
-80	77.5	82.5	0.746692292374975	80	-1
-85	82.5	87.5	0.893541965898201	85	-1
-90	87.5	92.5	0.502378876209873	90	-1
-95	92.5	97.5	0.101442707510056	95	-1
-100	97.5	102.5	0.345245619044993	100	-1
-105	102.5	107.5	0.772363875989482	105	-1
-110	107.5	112.5	0.867213468992967	110	-1
-115	112.5	117.5	0.767486506556626	115	-1
-120	117.5	122.5	0.711687479449569	120	-1
-125	122.5	127.5	0.88716797490827	125	-1
-130	127.5	132.5	0.0192670205951315	130	-1
-135	132.5	137.5	0.182055486087696	135	-1
-140	137.5	142.5	0.925939686567275	140	-1
-145	142.5	147.5	0.0677000777354073	145	-1
-150	147.5	152.5	0.36649017574606	150	-1
+x	xmin	xmax	y	help	clickSelects	group
+5	2.5	7.5	0.227990611537619	Click anywhere in the chart to select and view results for specific sample sizes	5	1
+10	7.5	12.5	0.237132591990712	Click anywhere in the chart to select and view results for specific sample sizes	10	1
+15	12.5	17.5	0.0473389509965438	Click anywhere in the chart to select and view results for specific sample sizes	15	1
+20	17.5	22.5	0.248433622719037	Click anywhere in the chart to select and view results for specific sample sizes	20	1
+25	22.5	27.5	0.321035031726622	Click anywhere in the chart to select and view results for specific sample sizes	25	1
+30	27.5	32.5	0.108523434645282	Click anywhere in the chart to select and view results for specific sample sizes	30	1
+35	32.5	37.5	0.233498882131427	Click anywhere in the chart to select and view results for specific sample sizes	35	1
+40	37.5	42.5	0.754105496827069	Click anywhere in the chart to select and view results for specific sample sizes	40	1
+45	42.5	47.5	0.440276273133617	Click anywhere in the chart to select and view results for specific sample sizes	45	1
+50	47.5	52.5	0.286472353377839	Click anywhere in the chart to select and view results for specific sample sizes	50	1
+55	52.5	57.5	0.403368666518786	Click anywhere in the chart to select and view results for specific sample sizes	55	1
+60	57.5	62.5	0.340840644884569	Click anywhere in the chart to select and view results for specific sample sizes	60	1
+65	62.5	67.5	0.730528311201193	Click anywhere in the chart to select and view results for specific sample sizes	65	1
+70	67.5	72.5	0.763804880290993	Click anywhere in the chart to select and view results for specific sample sizes	70	1
+75	72.5	77.5	0.0531390645049934	Click anywhere in the chart to select and view results for specific sample sizes	75	1
+80	77.5	82.5	0.746692292374975	Click anywhere in the chart to select and view results for specific sample sizes	80	1
+85	82.5	87.5	0.893541965898201	Click anywhere in the chart to select and view results for specific sample sizes	85	1
+90	87.5	92.5	0.502378876209873	Click anywhere in the chart to select and view results for specific sample sizes	90	1
+95	92.5	97.5	0.101442707510056	Click anywhere in the chart to select and view results for specific sample sizes	95	1
+100	97.5	102.5	0.345245619044993	Click anywhere in the chart to select and view results for specific sample sizes	100	1
+105	102.5	107.5	0.772363875989482	Click anywhere in the chart to select and view results for specific sample sizes	105	1
+110	107.5	112.5	0.867213468992967	Click anywhere in the chart to select and view results for specific sample sizes	110	1
+115	112.5	117.5	0.767486506556626	Click anywhere in the chart to select and view results for specific sample sizes	115	1
+120	117.5	122.5	0.711687479449569	Click anywhere in the chart to select and view results for specific sample sizes	120	1
+125	122.5	127.5	0.88716797490827	Click anywhere in the chart to select and view results for specific sample sizes	125	1
+130	127.5	132.5	0.0192670205951315	Click anywhere in the chart to select and view results for specific sample sizes	130	1
+135	132.5	137.5	0.182055486087696	Click anywhere in the chart to select and view results for specific sample sizes	135	1
+140	137.5	142.5	0.925939686567275	Click anywhere in the chart to select and view results for specific sample sizes	140	1
+145	142.5	147.5	0.0677000777354073	Click anywhere in the chart to select and view results for specific sample sizes	145	1
+150	147.5	152.5	0.36649017574606	Click anywhere in the chart to select and view results for specific sample sizes	150	1

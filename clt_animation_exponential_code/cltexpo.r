@@ -148,8 +148,10 @@ density_plot <- ggplot() +
 
 
 p_value_plot <- ggplot(p_values_df, aes(x = n, y = log10(p_value))) +
-  geom_line(aes(group = 1), color = "red", size = 1) +
-  geom_point(size = 3, color = "blue", clickSelects = "n") +
+  geom_line(aes(group = 1), color = "red", size = 1,
+  help = "Trend line showing how p-values from Shapiro-Wilk normality test change with increasing sample size") +
+  geom_point(size = 3, color = "blue", clickSelects = "n",
+  help = "Click on any point to select and view details for that specific sample size") +
   geom_tallrect(aes(
     xmin = n - interval_step/2,
     xmax = n + interval_step/2),

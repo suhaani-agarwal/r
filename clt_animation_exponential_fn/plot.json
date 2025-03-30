@@ -218,7 +218,8 @@
  "na.rm": false,
 "na.rm": false,
 "colour": "#FF0000",
-"size":        1 
+"size":        1,
+"help": "Trend line showing how p-values from Shapiro-Wilk normality test change with increasing sample size" 
 },
 "types": {
  "x": "numeric",
@@ -248,6 +249,7 @@
 "size":        3,
 "colour": "#0000FF",
 "clickSelects": "n",
+"help": "Click on any point to select and view details for that specific sample size",
 "help_clickSelects": "n" 
 },
 "types": {
