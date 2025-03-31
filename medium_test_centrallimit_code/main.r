@@ -69,13 +69,13 @@ density_plot <- ggplot() +
   geom_density(
     help = "This is the density plot of sample means for a normal distribution. It shows how the distribution of sample means changes as the sample size increases.",
     data = density_df,
-    aes(x = mean, group = n, fill = Distribution),
+    aes(x = mean, group = n, fill = Distribution,key = 1),
     alpha = 0.5,
     showSelected = "n"
   ) +
   geom_line(
     data = normal_curve_df,
-    aes(x = x, y = y, group = n, color = Approximation),
+    aes(x = x, y = y, group = n, color = Approximation, key = 1),
     linetype = "dashed",
     size = 1,
     help = "The dashed red line represents the theoretical normal distribution based on the Central Limit Theorem. As the sample size increases, the sample means should converge to this distribution.",

@@ -101,7 +101,7 @@ density_plot <- ggplot() +
     geom_density(
         help = "This is the density plot of sample means for an exponential distribution. It shows how the distribution of sample means changes as the sample size increases.",
         data = density_df,
-        aes(x = mean, group = n, fill = Distribution),
+        aes(x = mean, group = n, fill = Distribution, key=1),
         alpha = 0.5,
         showSelected = "n",
         hideSelected = "Layer"
@@ -121,7 +121,7 @@ density_plot <- ggplot() +
     ) +
     geom_line(
         data = normal_curve_df,
-        aes(x = x, y = y, group = n, color = Approximation),
+        aes(x = x, y = y, group = n, color = Approximation,key=1),
         linetype = "dashed",
         size = 1,
         showSelected = "n",

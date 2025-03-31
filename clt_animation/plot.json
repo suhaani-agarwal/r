@@ -7,6 +7,7 @@
  "x": "mean",
 "group": "n",
 "fill": "Distribution",
+"key": "1",
 "showSelected1": "n",
 "showSelected2": "Distribution" 
 },
@@ -27,6 +28,7 @@
 "count": "numeric",
 "n": "integer",
 "group": "character",
+"key": "numeric",
 "showSelected1": "numeric",
 "showSelected2": "character",
 "PANEL": "integer",
@@ -48,6 +50,7 @@
  "fill",
 "n",
 "group",
+"key",
 "showSelected2",
 "ymin" 
 ] 
@@ -94,6 +97,7 @@
 "y": "y",
 "group": "n",
 "colour": "Approximation",
+"key": "1",
 "showSelected1": "n",
 "showSelected2": "Approximation" 
 },
@@ -111,6 +115,7 @@
 "x": "numeric",
 "y": "numeric",
 "group": "character",
+"key": "numeric",
 "showSelected1": "numeric",
 "showSelected2": "character",
 "PANEL": "integer" 
@@ -129,6 +134,7 @@
  "common": [
  "colour",
 "group",
+"key",
 "showSelected2" 
 ] 
 },
